@@ -1,234 +1,234 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on ccwu&#39;s data science note</title>
-    <link>https://ccwupsy.netlify.app/tags/</link>
-    <description>Recent content in Tags on ccwu&#39;s data science note</description>
+    <title>Tags on DataFun</title>
+    <link>https://ccwupsy.github.io/tags/</link>
+    <description>Recent content in Tags on DataFun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="https://ccwupsy.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="https://ccwupsy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>plot</title>
-      <link>https://ccwupsy.netlify.app/tags/plot/</link>
+      <link>https://ccwupsy.github.io/tags/plot/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/plot/</guid>
+      <guid>https://ccwupsy.github.io/tags/plot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R Markdown</title>
-      <link>https://ccwupsy.netlify.app/tags/r-markdown/</link>
+      <link>https://ccwupsy.github.io/tags/r-markdown/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/r-markdown/</guid>
+      <guid>https://ccwupsy.github.io/tags/r-markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>regression</title>
-      <link>https://ccwupsy.netlify.app/tags/regression/</link>
+      <link>https://ccwupsy.github.io/tags/regression/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/regression/</guid>
+      <guid>https://ccwupsy.github.io/tags/regression/</guid>
       <description></description>
     </item>
     
     <item>
       <title>disqus</title>
-      <link>https://ccwupsy.netlify.app/tags/disqus/</link>
+      <link>https://ccwupsy.github.io/tags/disqus/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/disqus/</guid>
+      <guid>https://ccwupsy.github.io/tags/disqus/</guid>
       <description></description>
     </item>
     
     <item>
       <title>google analytics</title>
-      <link>https://ccwupsy.netlify.app/tags/google-analytics/</link>
+      <link>https://ccwupsy.github.io/tags/google-analytics/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/google-analytics/</guid>
+      <guid>https://ccwupsy.github.io/tags/google-analytics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gravatar</title>
-      <link>https://ccwupsy.netlify.app/tags/gravatar/</link>
+      <link>https://ccwupsy.github.io/tags/gravatar/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/gravatar/</guid>
+      <guid>https://ccwupsy.github.io/tags/gravatar/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hexo theme</title>
-      <link>https://ccwupsy.netlify.app/tags/hexo-theme/</link>
+      <link>https://ccwupsy.github.io/tags/hexo-theme/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/hexo-theme/</guid>
+      <guid>https://ccwupsy.github.io/tags/hexo-theme/</guid>
       <description></description>
     </item>
     
     <item>
       <title>responsive</title>
-      <link>https://ccwupsy.netlify.app/tags/responsive/</link>
+      <link>https://ccwupsy.github.io/tags/responsive/</link>
       <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/responsive/</guid>
+      <guid>https://ccwupsy.github.io/tags/responsive/</guid>
       <description></description>
     </item>
     
     <item>
       <title>html elements</title>
-      <link>https://ccwupsy.netlify.app/tags/html-elements/</link>
+      <link>https://ccwupsy.github.io/tags/html-elements/</link>
       <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/html-elements/</guid>
+      <guid>https://ccwupsy.github.io/tags/html-elements/</guid>
       <description></description>
     </item>
     
     <item>
       <title>markdown</title>
-      <link>https://ccwupsy.netlify.app/tags/markdown/</link>
+      <link>https://ccwupsy.github.io/tags/markdown/</link>
       <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/markdown/</guid>
+      <guid>https://ccwupsy.github.io/tags/markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cover image</title>
-      <link>https://ccwupsy.netlify.app/tags/cover-image/</link>
+      <link>https://ccwupsy.github.io/tags/cover-image/</link>
       <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/cover-image/</guid>
+      <guid>https://ccwupsy.github.io/tags/cover-image/</guid>
       <description></description>
     </item>
     
     <item>
       <title>github theme</title>
-      <link>https://ccwupsy.netlify.app/tags/github-theme/</link>
+      <link>https://ccwupsy.github.io/tags/github-theme/</link>
       <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/github-theme/</guid>
+      <guid>https://ccwupsy.github.io/tags/github-theme/</guid>
       <description></description>
     </item>
     
     <item>
       <title>highlight code</title>
-      <link>https://ccwupsy.netlify.app/tags/highlight-code/</link>
+      <link>https://ccwupsy.github.io/tags/highlight-code/</link>
       <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/highlight-code/</guid>
+      <guid>https://ccwupsy.github.io/tags/highlight-code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>test</title>
-      <link>https://ccwupsy.netlify.app/tags/test/</link>
+      <link>https://ccwupsy.github.io/tags/test/</link>
       <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/test/</guid>
+      <guid>https://ccwupsy.github.io/tags/test/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tag plugins</title>
-      <link>https://ccwupsy.netlify.app/tags/tag-plugins/</link>
+      <link>https://ccwupsy.github.io/tags/tag-plugins/</link>
       <pubDate>Wed, 29 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/tag-plugins/</guid>
+      <guid>https://ccwupsy.github.io/tags/tag-plugins/</guid>
       <description></description>
     </item>
     
     <item>
       <title>social</title>
-      <link>https://ccwupsy.netlify.app/tags/social/</link>
+      <link>https://ccwupsy.github.io/tags/social/</link>
       <pubDate>Sun, 17 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/social/</guid>
+      <guid>https://ccwupsy.github.io/tags/social/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tags</title>
-      <link>https://ccwupsy.netlify.app/tags/tags/</link>
+      <link>https://ccwupsy.github.io/tags/tags/</link>
       <pubDate>Sat, 16 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/tags/</guid>
+      <guid>https://ccwupsy.github.io/tags/tags/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pagination</title>
-      <link>https://ccwupsy.netlify.app/tags/pagination/</link>
+      <link>https://ccwupsy.github.io/tags/pagination/</link>
       <pubDate>Fri, 15 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/pagination/</guid>
+      <guid>https://ccwupsy.github.io/tags/pagination/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dailymotion</title>
-      <link>https://ccwupsy.netlify.app/tags/dailymotion/</link>
+      <link>https://ccwupsy.github.io/tags/dailymotion/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/dailymotion/</guid>
+      <guid>https://ccwupsy.github.io/tags/dailymotion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>videos integration</title>
-      <link>https://ccwupsy.netlify.app/tags/videos-integration/</link>
+      <link>https://ccwupsy.github.io/tags/videos-integration/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/videos-integration/</guid>
+      <guid>https://ccwupsy.github.io/tags/videos-integration/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vimeo</title>
-      <link>https://ccwupsy.netlify.app/tags/vimeo/</link>
+      <link>https://ccwupsy.github.io/tags/vimeo/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/vimeo/</guid>
+      <guid>https://ccwupsy.github.io/tags/vimeo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>youtube</title>
-      <link>https://ccwupsy.netlify.app/tags/youtube/</link>
+      <link>https://ccwupsy.github.io/tags/youtube/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/youtube/</guid>
+      <guid>https://ccwupsy.github.io/tags/youtube/</guid>
       <description></description>
     </item>
     
     <item>
       <title>chinese</title>
-      <link>https://ccwupsy.netlify.app/tags/chinese/</link>
+      <link>https://ccwupsy.github.io/tags/chinese/</link>
       <pubDate>Wed, 02 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/chinese/</guid>
+      <guid>https://ccwupsy.github.io/tags/chinese/</guid>
       <description></description>
     </item>
     
     <item>
       <title>image gallery</title>
-      <link>https://ccwupsy.netlify.app/tags/image-gallery/</link>
+      <link>https://ccwupsy.github.io/tags/image-gallery/</link>
       <pubDate>Mon, 18 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/image-gallery/</guid>
+      <guid>https://ccwupsy.github.io/tags/image-gallery/</guid>
       <description></description>
     </item>
     
     <item>
       <title>japanese</title>
-      <link>https://ccwupsy.netlify.app/tags/japanese/</link>
+      <link>https://ccwupsy.github.io/tags/japanese/</link>
       <pubDate>Wed, 02 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.netlify.app/tags/japanese/</guid>
+      <guid>https://ccwupsy.github.io/tags/japanese/</guid>
       <description></description>
     </item>
     
