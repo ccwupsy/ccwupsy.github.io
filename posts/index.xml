@@ -6,7 +6,16 @@
     <description>Recent content in Posts on DataFun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="https://ccwupsy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ccwupsy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Image gallery showcase</title>
+      <link>https://ccwupsy.github.io/2022/07/image-gallery-showcase/</link>
+      <pubDate>Fri, 22 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ccwupsy.github.io/2022/07/image-gallery-showcase/</guid>
+      <description>&lt;p&gt;And here is the image gallery!&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Hello R Markdown</title>
       <link>https://ccwupsy.github.io/2020/12/hello-r-markdown/</link>
