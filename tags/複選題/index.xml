@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Fun with data</title>
-    <link>https://ccwupsy.github.io/posts/</link>
-    <description>Recent content in Posts on Fun with data</description>
+    <title>複選題 on Fun with data</title>
+    <link>https://ccwupsy.github.io/tags/%E8%A4%87%E9%81%B8%E9%A1%8C/</link>
+    <description>Recent content in 複選題 on Fun with data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ccwupsy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ccwupsy.github.io/tags/%E8%A4%87%E9%81%B8%E9%A1%8C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>用R整理Google表單的複選題資料</title>
       <link>https://ccwupsy.github.io/2022/09/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/</link>

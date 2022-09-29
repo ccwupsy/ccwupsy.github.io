@@ -7,9 +7,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Test3",
-  
-  "image": "//d1u9biwaxjngwg.cloudfront.net/video-integration-showcase/peak-140.jpg",
+  "headline": "用R整理Google表單的複選題資料",
   
   "datePublished": "2022-07-22T00:00:00Z",
   "dateModified": "2022-07-22T00:00:00Z",
@@ -22,7 +20,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/ccwupsy.github.io\/2022\/07\/test3\/" 
+    "@id": "https:\/\/ccwupsy.github.io\/2022\/07\/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,7 +32,7 @@
     }
     
   },
-  "description": "Youtube and Vimeo videos are easily integrated thanks to tags plugins. Of course, you can add video other platforms like dailymotion.\n",
+  "description": "\rGoogle表單在蒐集資料上非常好用，也會自動產生美觀的統計圖表。但如果需要下載Google表單的資料做後續分析，而表單的題目有複選題時，Google表單的記錄方式不一定適合後續的分析，例如迴歸分析，因此需要額外進行處理。本文說明如何用R來處理Google表單的複選題資料。\n",
   "keywords": []
 }
 
@@ -45,18 +43,34 @@
 <meta name="generator" content="Hugo 0.95.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Chia-Ching Wu">
 <meta name="keywords" content="">
-<meta name="description" content="Youtube and Vimeo videos are easily integrated thanks to tags plugins. Of course, you can add video other platforms like dailymotion.">
+<meta name="description" content="
 
 
-<meta property="og:description" content="Youtube and Vimeo videos are easily integrated thanks to tags plugins. Of course, you can add video other platforms like dailymotion.">
+Google表單在蒐集資料上非常好用，也會自動產生美觀的統計圖表。但如果需要下載Google表單的資料做後續分析，而表單的題目有複選題時，Google表單的記錄方式不一定適合後續的分析，例如迴歸分析，因此需要額外進行處理。本文說明如何用R來處理Google表單的複選題資料。
+">
+
+
+<meta property="og:description" content="
+
+
+Google表單在蒐集資料上非常好用，也會自動產生美觀的統計圖表。但如果需要下載Google表單的資料做後續分析，而表單的題目有複選題時，Google表單的記錄方式不一定適合後續的分析，例如迴歸分析，因此需要額外進行處理。本文說明如何用R來處理Google表單的複選題資料。
+">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Test3">
-<meta name="twitter:title" content="Test3">
-<meta property="og:url" content="https://ccwupsy.github.io/2022/07/test3/">
-<meta property="twitter:url" content="https://ccwupsy.github.io/2022/07/test3/">
+<meta property="og:title" content="用R整理Google表單的複選題資料">
+<meta name="twitter:title" content="用R整理Google表單的複選題資料">
+<meta property="og:url" content="https://ccwupsy.github.io/2022/07/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/">
+<meta property="twitter:url" content="https://ccwupsy.github.io/2022/07/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/">
 <meta property="og:site_name" content="Fun with data">
-<meta property="og:description" content="Youtube and Vimeo videos are easily integrated thanks to tags plugins. Of course, you can add video other platforms like dailymotion.">
-<meta name="twitter:description" content="Youtube and Vimeo videos are easily integrated thanks to tags plugins. Of course, you can add video other platforms like dailymotion.">
+<meta property="og:description" content="
+
+
+Google表單在蒐集資料上非常好用，也會自動產生美觀的統計圖表。但如果需要下載Google表單的資料做後續分析，而表單的題目有複選題時，Google表單的記錄方式不一定適合後續的分析，例如迴歸分析，因此需要額外進行處理。本文說明如何用R來處理Google表單的複選題資料。
+">
+<meta name="twitter:description" content="
+
+
+Google表單在蒐集資料上非常好用，也會自動產生美觀的統計圖表。但如果需要下載Google表單的資料做後續分析，而表單的題目有複選題時，Google表單的記錄方式不一定適合後續的分析，例如迴歸分析，因此需要額外進行處理。本文說明如何用R來處理Google表單的複選題資料。
+">
 <meta property="og:locale" content="zh-tw">
 
   
@@ -75,13 +89,13 @@
   
   
     
-      <meta property="article:tag" content="videos integration">
+      <meta property="article:tag" content="google表單">
     
-      <meta property="article:tag" content="youtube">
+      <meta property="article:tag" content="複選題">
     
-      <meta property="article:tag" content="vimeo">
+      <meta property="article:tag" content="R">
     
-      <meta property="article:tag" content="dailymotion">
+      <meta property="article:tag" content="資料整理">
     
   
 
@@ -101,18 +115,15 @@
 
 
 
-  <meta property="og:image" content="//d1u9biwaxjngwg.cloudfront.net/video-integration-showcase/peak-140.jpg">
-  <meta property="twitter:image" content="//d1u9biwaxjngwg.cloudfront.net/video-integration-showcase/peak-140.jpg">
 
-
-    <title>Test3</title>
+    <title>用R整理Google表單的複選題資料</title>
 
     <link rel="icon" href="https://ccwupsy.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://ccwupsy.github.io/2022/07/test3/">
+    <link rel="canonical" href="https://ccwupsy.github.io/2022/07/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -274,7 +285,7 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      Test3
+      用R整理Google表單的複選題資料
     </h1>
   
   
@@ -303,18 +314,110 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>Youtube and Vimeo videos are easily integrated thanks to tags plugins. Of course, you can add video other platforms like dailymotion.</p>
-<p><strong>Youtube</strong></p>
+              <div id="資料範例" class="section level2">
+<h2>資料範例</h2>
+<p>請<a href="https://docs.google.com/spreadsheets/d/1Z9hGVdNaNmk41hbScOB1SUzTVZ_An41Z/edit?usp=sharing&amp;ouid=102534642616283273245&amp;rtpof=true&amp;sd=true">點選此處</a>下載google forms的資料範例。</p>
+<p>資料為一虛擬的問卷資料，為25位大學生在五個問卷題目的回答。其中兩個題目是複選題，另有三個題目是四點量表的回答。</p>
+</div>
+<div id="讀入資料" class="section level2">
+<h2>讀入資料</h2>
+<pre class="r"><code>library(data.table)
+library(readxl)
+qData1 &lt;- as.data.table(read_xlsx(&#39;GoogleFormsData.xlsx&#39;))</code></pre>
+</div>
+<div id="重新整理複選題資料-以單一題目為例" class="section level2">
+<h2>重新整理複選題資料-以單一題目為例</h2>
+<p>用splitstackshape套件的cSplit()函數將”你在高中時期擔任過哪些職務？“中的回答按照逗號(,)分割，並置於不同行。type.convert=FALSE表示不另將變項轉換為其他形式。</p>
+<pre class="r"><code>library(splitstackshape)
+qData1 &lt;- cSplit(qData1, &quot;你在高中時期擔任過哪些職務？&quot;, &quot;,&quot;, type.convert=FALSE)</code></pre>
+<p>用tidyr套件的gather()函數，將Wide-format data轉為long-format data。原本有五行(即第6~10行)，每行的值都是所擔任的幹部名稱。gather()可以將這五行合併為一行(key)，並將每一行下面的反應放到新的一行(value)中。我們可以設定key column的名稱和value column的名稱。</p>
+<pre class="r"><code>library(tidyr)
+qData1 &lt;- gather(qData1, key = &quot;你在高中時期擔任過哪些職務？&quot;, value = value, c(6:10)) </code></pre>
+<p>用na.exclude()函數移除value一行中，數值為NA的列。讓資料更為精簡。</p>
+<pre class="r"><code>qData1 &lt;- na.exclude(qData1, ncol(qData1)) </code></pre>
+<p>用dplyr套件的mutate()函數將value改為”職務-“加上原有的職務名稱，並將”你在高中時期擔任過哪些職務？“都設為1。</p>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:data.table&#39;:
+## 
+##     between, first, last</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>qData1 &lt;- mutate(qData1, value=paste0(substr(&quot;你在高中時期擔任過哪些職務？&quot;, 12, 13), &#39;-&#39;, value), &quot;你在高中時期擔任過哪些職務？&quot;=1)</code></pre>
+<p>用tidyr套件的spread()函數將value column中的值設為key，“你在高中時期擔任過哪些職務？”的值設為value，將long-format data轉為wide-format data。</p>
+<pre class="r"><code>qData1 &lt;- spread(qData1, key = value, value = &quot;你在高中時期擔任過哪些職務？&quot;) </code></pre>
+<p>用dplyr套件的mutate_all()函數，將第6~14個columns的na都取代為0。</p>
+<pre class="r"><code>qData1 &lt;- mutate_at(qData1, vars(c(6:14)), .funs=funs(replace(., is.na(.), 0)))</code></pre>
+<pre><code>## Warning: `funs()` was deprecated in dplyr 0.8.0.
+## Please use a list of either functions or lambdas: 
+## 
+##   # Simple named list: 
+##   list(mean = mean, median = median)
+## 
+##   # Auto named with `tibble::lst()`: 
+##   tibble::lst(mean, median)
+## 
+##   # Using lambdas
+##   list(~ mean(., trim = .2), ~ median(., na.rm = TRUE))</code></pre>
+</div>
+<div id="將上述程式改為變數" class="section level2">
+<h2>將上述程式改為變數</h2>
+<p>新設一變數thiscname，令之為”你在高中時期擔任過哪些職務？“，並將上面程式碼中的column位置的數字全數以變數來表示。mutate()函數中，substr()裡的字串位置也置換為變數。</p>
+<pre class="r"><code>qData1 &lt;- as.data.table(read_xlsx(&#39;GoogleFormsData.xlsx&#39;))
+thiscname &lt;- &quot;你在高中時期擔任過哪些職務？&quot;
+cn1 &lt;- ncol(qData1)
+qData1 &lt;- cSplit(qData1, thiscname, &quot;,&quot;, type.convert=FALSE)
+cn2 &lt;- ncol(qData1)
+qData1 &lt;- gather(qData1, key = thiscname, value = value, c(all_of(cn1):all_of(cn2)))                  
+qData1 &lt;- na.exclude(qData1, ncol(qData1)) 
+nstart &lt;- nchar(thiscname)-2
+nend &lt;- nchar(thiscname)-1
+qData1 &lt;- mutate(qData1, value=paste0(substr(thiscname, nstart, nend), &#39;-&#39;, value), thiscname=1)
+cn1 &lt;- ncol(qData1)-1
+qData1 &lt;- spread(qData1, key = value, value = thiscname) 
+cn2 &lt;- ncol(qData1)
+qData1 &lt;- mutate_at(qData1, vars(c(cn1:cn2)), .funs=~ replace(., is.na(.), 0))</code></pre>
+<pre><code>## Note: Using an external vector in selections is ambiguous.
+## ℹ Use `all_of(cn1)` instead of `cn1` to silence this message.
+## ℹ See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
+## This message is displayed once per session.
+## Note: Using an external vector in selections is ambiguous.
+## ℹ Use `all_of(cn2)` instead of `cn2` to silence this message.
+## ℹ See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
+## This message is displayed once per session.</code></pre>
+</div>
+<div id="以for迴圈處理所有複選題的題目" class="section level2">
+<h2>以for迴圈處理所有複選題的題目</h2>
+<pre class="r"><code>qData1 &lt;- as.data.table(read_xlsx(&#39;GoogleFormsData.xlsx&#39;))
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/xL45JMI8IFg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+col_pos &lt;- c(2,6)
+cname &lt;- names(qData1)[col_pos]
+
+for (i in 1:length(cname)) {
+  thiscname &lt;- cname[i]
+  cn1 &lt;- ncol(qData1)
+  qData1 &lt;- cSplit(qData1, thiscname, &quot;,&quot;, type.convert=FALSE)
+  cn2 &lt;- ncol(qData1)
+  qData1 &lt;- gather(qData1, key = thiscname, value = value, c(all_of(cn1):all_of(cn2))) 
+  qData1 &lt;- na.exclude(qData1, ncol(qData1)) 
+  nstart &lt;- nchar(thiscname)-2
+  nend &lt;- nchar(thiscname)-1
+  qData1 &lt;- mutate(qData1, value=paste0(substr(thiscname, nstart, nend), &#39;-&#39;, value), thiscname=1)
+  cn1 &lt;- ncol(qData1)-1
+  qData1 &lt;- spread(qData1, key = value, value = thiscname) 
+  cn2 &lt;- ncol(qData1)
+  qData1 &lt;- mutate_at(qData1, vars(c(cn1:cn2)), .funs=funs(replace(., is.na(.), 0))) 
+}</code></pre>
+</div>
+<div id="寫成函數" class="section level2">
+<h2>寫成函數</h2>
 </div>
 
-<p><strong>Vimeo</strong></p>
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://player.vimeo.com/video/17877190" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="vimeo video" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-</div>
               
 
 
@@ -328,13 +431,13 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/videos-integration/">videos integration</a>
+  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/google%E8%A1%A8%E5%96%AE/">google表單</a>
 
-  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/youtube/">youtube</a>
+  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/%E8%A4%87%E9%81%B8%E9%A1%8C/">複選題</a>
 
-  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/vimeo/">vimeo</a>
+  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/r/">R</a>
 
-  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/dailymotion/">dailymotion</a>
+  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/%E8%B3%87%E6%96%99%E6%95%B4%E7%90%86/">資料整理</a>
 
                   </div>
                 
@@ -347,7 +450,7 @@
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/07/test4/" data-tooltip="Test4" aria-label="下一篇: Test4">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -355,7 +458,7 @@
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/07/test4/" data-tooltip="Test4" aria-label="上一篇: Test4">
+            <a class="post-action-btn btn btn--disabled">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -373,19 +476,19 @@
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/07/test3/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/07/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/07/test3/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/07/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/07/test3/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/07/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -427,7 +530,7 @@
           repo: 'ccwupsy.github.io',
           owner: 'ccwupsy',
           admin: ['ccwupsy'],
-          id: '1316261922c45761acb885f5dffd96db',
+          id: '8efd8f34303834abb611481808bd2a72',
           ...{"distractionfreemode":true,"enablehotkey":true,"language":"zh-TW","pagerdirection":"first","perpage":10}
         }).render('gitalk')
       })()
@@ -452,7 +555,7 @@
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/07/test4/" data-tooltip="Test4" aria-label="下一篇: Test4">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -460,7 +563,7 @@
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/07/test4/" data-tooltip="Test4" aria-label="上一篇: Test4">
+            <a class="post-action-btn btn btn--disabled">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -478,19 +581,19 @@
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/07/test3/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/07/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/07/test3/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/07/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/07/test3/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/07/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -521,19 +624,19 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccwupsy.github.io%2F2022%2F07%2Ftest3%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccwupsy.github.io%2F2022%2F07%2F%25E7%2594%25A8r%25E6%2595%25B4%25E7%2590%2586google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E8%25A4%2587%25E9%2581%25B8%25E9%25A1%258C%25E8%25B3%2587%25E6%2596%2599%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fccwupsy.github.io%2F2022%2F07%2Ftest3%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fccwupsy.github.io%2F2022%2F07%2F%25E7%2594%25A8r%25E6%2595%25B4%25E7%2590%2586google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E8%25A4%2587%25E9%2581%25B8%25E9%25A1%258C%25E8%25B3%2587%25E6%2596%2599%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fccwupsy.github.io%2F2022%2F07%2Ftest3%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fccwupsy.github.io%2F2022%2F07%2F%25E7%2594%25A8r%25E6%2595%25B4%25E7%2590%2586google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E8%25A4%2587%25E9%2581%25B8%25E9%25A1%258C%25E8%25B3%2587%25E6%2596%2599%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>

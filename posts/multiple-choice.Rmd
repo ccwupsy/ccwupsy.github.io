@@ -1,0 +1,169 @@
+---
+title: "用R整理Google表單的複選題資料"
+date: "2022-09-29"
+tags:
+- google表單
+- 複選題
+- R
+- 資料整理
+categories:
+- 資料整理
+---
+
+Google表單在蒐集資料上非常好用，也會自動產生美觀的統計圖表。但如果需要下載Google表單的資料做後續分析，而表單的題目有複選題時，Google表單的記錄方式不一定適合後續的分析，例如迴歸分析，因此需要額外進行處理。本文說明如何用R來處理Google表單的複選題資料。
+
+<!--more-->
+
+## 資料範例
+
+請[點選此處](https://docs.google.com/spreadsheets/d/1Z9hGVdNaNmk41hbScOB1SUzTVZ_An41Z/edit?usp=sharing&ouid=102534642616283273245&rtpof=true&sd=true)下載google forms的資料範例。
+
+資料為一虛擬的問卷資料，為25位大學生在五個問卷題目的回答。其中兩個題目是複選題，另有三個題目是四點量表的回答。
+
+## 讀入資料
+
+```{R}
+library(data.table)
+library(readxl)
+qData1 <- as.data.table(read_xlsx('GoogleFormsData.xlsx'))
+```
+
+```{R, echo=FALSE}
+library(knitr)
+library(kableExtra)
+kbl(head(qData1[, c(1:6)]), align = "c") %>%
+  kable_styling(bootstrap_options = "striped", font_size = 12.5)
+```
+
+## 重新整理複選題資料-以單一題目為例
+
+用splitstackshape套件的cSplit()函數將"你在高中時期擔任過哪些職務？"中的回答按照逗號(,)分割，並置於不同行。type.convert=FALSE表示不另將變項轉換為其他形式。
+
+```{R}
+library(splitstackshape)
+qData1 <- cSplit(qData1, "你在高中時期擔任過哪些職務？", ",", type.convert=FALSE)
+```
+
+```{R, echo=FALSE}
+library(knitr)
+library(kableExtra)
+kbl(head(qData1[, c(6:10)]), align = "c") %>%
+  kable_styling(bootstrap_options = "striped", font_size = 12.5)
+```
+
+用tidyr套件的gather()函數，將Wide-format data轉為long-format data。原本有五行(即第6~10行)，每行的值都是所擔任的幹部名稱。gather()可以將這五行合併為一行(key)，並將每一行下面的反應放到新的一行(value)中。我們可以設定key column的名稱和value column的名稱。
+
+```{R}
+library(tidyr)
+qData1 <- gather(qData1, key = "你在高中時期擔任過哪些職務？", value = value, c(6:10)) 
+```  
+
+用na.exclude()函數移除value一行中，數值為NA的列。讓資料更為精簡。
+```{R}
+qData1 <- na.exclude(qData1, ncol(qData1)) 
+```
+
+用dplyr套件的mutate()函數將value改為題目敘述加上原有的職務名稱，並將"你在高中時期擔任過哪些職務？"都設為1。
+```{R message=FALSE}
+library(dplyr)
+qData1 <- mutate(qData1, value=paste0("你在高中時期擔任過哪些職務？", '-', value), "你在高中時期擔任過哪些職務？"=1)
+```
+
+用tidyr套件的spread()函數將value column中的值設為key，"你在高中時期擔任過哪些職務？"的值設為value，將long-format data轉為wide-format data。
+
+```{R}
+qData1 <- spread(qData1, key = value, value = "你在高中時期擔任過哪些職務？") 
+```
+
+用dplyr套件的mutate_all()函數，將第6~14個columns的na都取代為0。
+
+```{R}
+qData1 <- mutate_at(qData1, vars(c(6:14)), ~replace(., is.na(.), 0))
+```
+
+```{R, echo=FALSE}
+library(knitr)
+library(kableExtra)
+kbl(qData1[1:6, c(6:10)], align = "c") %>%
+  kable_styling(bootstrap_options = "striped", font_size = 12.5)
+```
+
+## 將上述程式改為變數
+
+新設一變數thiscname，令之為"你在高中時期擔任過哪些職務？"，並將上面程式碼中的column位置的數字全數以變數來表示。
+
+```{R}
+qData1 <- as.data.table(read_xlsx('GoogleFormsData.xlsx'))
+thiscname <- "你在高中時期擔任過哪些職務？"
+cn1 <- ncol(qData1)
+qData1 <- cSplit(qData1, thiscname, ",", type.convert=FALSE)
+cn2 <- ncol(qData1)
+qData1 <- gather(qData1, key = thiscname, value = value, c(all_of(cn1):all_of(cn2)))                  
+qData1 <- na.exclude(qData1, ncol(qData1)) 
+qData1 <- mutate(qData1, value=paste0(thiscname, '-', value), thiscname=1)
+cn1 <- ncol(qData1)-1
+qData1 <- spread(qData1, key = value, value = thiscname) 
+cn2 <- ncol(qData1)
+qData1 <- mutate_at(qData1, vars(c(all_of(cn1):all_of(cn2))), ~replace(., is.na(.), 0))
+```
+
+
+## 以for迴圈一次處理所有複選題的題目
+
+加上for迴圈後，即可一次處理多個複選題的回答。
+
+```{R}
+qData1 <- as.data.table(read_xlsx('GoogleFormsData.xlsx'))
+
+col_pos <- c(2,6)
+cname <- names(qData1)[col_pos]
+
+for (i in 1:length(cname)) {
+  thiscname <- cname[i]
+  cn1 <- ncol(qData1)
+  qData1 <- cSplit(qData1, thiscname, ",", type.convert=FALSE)
+  cn2 <- ncol(qData1)
+  qData1 <- gather(qData1, key = thiscname, value = value, c(all_of(cn1):all_of(cn2))) 
+  qData1 <- na.exclude(qData1, ncol(qData1)) 
+  qData1 <- mutate(qData1, value=paste0(thiscname, '-', value), thiscname=1)
+  cn1 <- ncol(qData1)-1
+  qData1 <- spread(qData1, key = value, value = thiscname) 
+  cn2 <- ncol(qData1)
+  qData1 <- mutate_at(qData1, vars(c(all_of(cn1):all_of(cn2))), ~replace(., is.na(.), 0))
+}
+
+```
+
+
+
+## 寫成函數
+
+最後將上述程式碼寫成函數，只要輸入dataframe的名稱和複選題在第幾行，就可以帶入函數處理。在下例中，函數名稱為arr_mulchoice，輸入的變數為df（dataframe的名稱）和col_pos（哪些題目是複選題需要處理）。
+
+```{R}
+
+arr_mulchoice <- function(df, col_pos){
+  cname <- names(qData1)[col_pos]
+
+  for (i in 1:length(cname)) {
+    thiscname <- cname[i]
+    cn1 <- ncol(df)
+    df <- cSplit(df, thiscname, ",", type.convert=FALSE)
+    cn2 <- ncol(df)
+    df <- gather(df, key = thiscname, value = value, c(all_of(cn1):all_of(cn2))) 
+    df <- na.exclude(df, ncol(df)) 
+    df <- mutate(df, value=paste0(thiscname, '-', value), thiscname=1)
+    cn1 <- ncol(df)-1
+    df <- spread(df, key = value, value = thiscname) 
+    cn2 <- ncol(df)
+    df <- mutate_at(df, vars(c(all_of(cn1):all_of(cn2))), ~replace(., is.na(.), 0))
+  }
+return(df)
+}
+
+qData1 <- as.data.table(read_xlsx('GoogleFormsData.xlsx'))
+col_pos <- c(2,6)
+qData1 <- arr_mulchoice(qData1, col_pos)
+
+```
+
