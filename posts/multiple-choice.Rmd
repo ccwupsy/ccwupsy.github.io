@@ -5,7 +5,6 @@ tags:
 - google表單
 - 複選題
 - R
-- 資料整理
 categories:
 - 資料整理
 ---
