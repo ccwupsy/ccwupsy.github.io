@@ -1,0 +1,97 @@
+---
+title: "以splitstackshape套件整理Google表單的複選題資料"
+date: "2022-10-01"
+tags:
+- google表單
+- 複選題
+- R
+- splitstackshape
+categories:
+- 資料整理
+---
+
+Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。
+
+<!--more-->
+
+## 資料範例
+
+請[點選此處](https://docs.google.com/spreadsheets/d/1Z9hGVdNaNmk41hbScOB1SUzTVZ_An41Z/edit?usp=sharing&ouid=102534642616283273245&rtpof=true&sd=true)下載google forms的資料範例。
+
+資料為一虛擬的問卷資料，為25位大學生在五個問卷題目的回答。其中兩個題目是複選題，另有三個題目是四點量表的回答。
+
+## 讀入資料
+
+```{R}
+library(data.table)
+library(readxl)
+qData1 <- as.data.table(read_xlsx('GoogleFormsData.xlsx'))
+```
+
+```{R, echo=FALSE}
+library(knitr)
+library(kableExtra)
+kbl(head(qData1[, c(1:6)]), align = "c") %>%
+  kable_styling(bootstrap_options = "striped", font_size = 12.5)
+```
+
+
+## 重新整理複選題資料-以單一題目為例
+
+用splitstackshape套件的cSplit_e()函數將第2個column--"你在高中時期擔任過哪些職務？"中的回答按照逗號(,)分割，並置於不同行，有選擇該選項者填入1，未選擇該選項者填入0。
+
+```{R warning=FALSE}
+library(splitstackshape)
+qData1 <- cSplit_e(qData1, 2, type="character", fill=0)
+```
+
+```{R, echo=FALSE}
+library(knitr)
+library(kableExtra)
+kbl(head(qData1[, c(2, 7:10)]), align = "c") %>%
+  kable_styling(bootstrap_options = "striped", font_size = 12.5)
+```
+
+
+## 以for迴圈一次處理所有複選題的題目
+
+加上for迴圈後，即可一次處理多個複選題的回答。
+
+```{R warning=FALSE}
+qData1 <- as.data.table(read_xlsx('GoogleFormsData.xlsx'))
+
+col_pos <- c(2,6)
+cname <- names(qData1)[col_pos]
+
+for (i in 1:length(cname)) {
+  thisncolumn <- col_pos[i]
+  qData1 <- cSplit_e(qData1, thisncolumn, type="character", fill=0)
+}
+
+```
+
+
+## 寫成函數
+
+最後將上述程式碼寫成函數，只要輸入dataframe的名稱和複選題在第幾行，就可以帶入函數處理。在下例中，函數名稱為arr_mulchoice，輸入的變數為df（dataframe的名稱）和col_pos（哪些題目是複選題需要處理）。
+
+```{R warning=FALSE}
+
+arr_mulchoice <- function(df, col_pos){
+  cname <- names(qData1)[col_pos]
+  for (i in 1:length(cname)) {
+    thisncolumn <- col_pos[i]
+    qData1 <- cSplit_e(qData1, thisncolumn, type="character", fill=0)
+  }
+return(df)
+}
+
+qData1 <- as.data.table(read_xlsx('GoogleFormsData.xlsx'))
+col_pos <- c(2,6)
+qData1 <- arr_mulchoice(qData1, col_pos)
+
+```
+
+## 參考資料
+Stack overflow: [Split a column of concatenated comma-delimited data and recode output as factors](https://stackoverflow.com/questions/10100887/split-a-column-of-concatenated-comma-delimited-data-and-recode-output-as-factors)
+

@@ -7,10 +7,10 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "用R整理Google表單的複選題資料",
+  "headline": "以splitstackshape套件整理Google表單的複選題資料",
   
-  "datePublished": "2022-09-29T00:00:00Z",
-  "dateModified": "2022-09-29T00:00:00Z",
+  "datePublished": "2022-10-01T00:00:00Z",
+  "dateModified": "2022-10-01T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "Chia-Ching Wu",
@@ -20,7 +20,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/ccwupsy.github.io\/2022\/09\/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99\/" 
+    "@id": "https:\/\/ccwupsy.github.io\/2022\/10\/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -32,7 +32,7 @@
     }
     
   },
-  "description": "\r\rGoogle表單在蒐集資料上非常好用，也會自動產生美觀的統計圖表。但如果需要下載Google表單的資料做後續分析，而表單的題目有複選題時，Google表單的記錄方式不一定適合後續的分析，例如迴歸分析，因此需要額外進行處理。本文說明如何用R來處理Google表單的複選題資料。\n",
+  "description": "\r\rGoogle表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。\n",
   "keywords": []
 }
 
@@ -48,7 +48,7 @@
 
 
 
-Google表單在蒐集資料上非常好用，也會自動產生美觀的統計圖表。但如果需要下載Google表單的資料做後續分析，而表單的題目有複選題時，Google表單的記錄方式不一定適合後續的分析，例如迴歸分析，因此需要額外進行處理。本文說明如何用R來處理Google表單的複選題資料。
+Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。
 ">
 
 
@@ -57,35 +57,35 @@ Google表單在蒐集資料上非常好用，也會自動產生美觀的統計�
 
 
 
-Google表單在蒐集資料上非常好用，也會自動產生美觀的統計圖表。但如果需要下載Google表單的資料做後續分析，而表單的題目有複選題時，Google表單的記錄方式不一定適合後續的分析，例如迴歸分析，因此需要額外進行處理。本文說明如何用R來處理Google表單的複選題資料。
+Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用R整理Google表單的複選題資料">
-<meta name="twitter:title" content="用R整理Google表單的複選題資料">
-<meta property="og:url" content="https://ccwupsy.github.io/2022/09/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/">
-<meta property="twitter:url" content="https://ccwupsy.github.io/2022/09/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/">
+<meta property="og:title" content="以splitstackshape套件整理Google表單的複選題資料">
+<meta name="twitter:title" content="以splitstackshape套件整理Google表單的複選題資料">
+<meta property="og:url" content="https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/">
+<meta property="twitter:url" content="https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/">
 <meta property="og:site_name" content="Fun with data">
 <meta property="og:description" content="
 
 
 
 
-Google表單在蒐集資料上非常好用，也會自動產生美觀的統計圖表。但如果需要下載Google表單的資料做後續分析，而表單的題目有複選題時，Google表單的記錄方式不一定適合後續的分析，例如迴歸分析，因此需要額外進行處理。本文說明如何用R來處理Google表單的複選題資料。
+Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。
 ">
 <meta name="twitter:description" content="
 
 
 
 
-Google表單在蒐集資料上非常好用，也會自動產生美觀的統計圖表。但如果需要下載Google表單的資料做後續分析，而表單的題目有複選題時，Google表單的記錄方式不一定適合後續的分析，例如迴歸分析，因此需要額外進行處理。本文說明如何用R來處理Google表單的複選題資料。
+Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。
 ">
 <meta property="og:locale" content="zh-tw">
 
   
-    <meta property="article:published_time" content="2022-09-29T00:00:00">
+    <meta property="article:published_time" content="2022-10-01T00:00:00">
   
   
-    <meta property="article:modified_time" content="2022-09-29T00:00:00">
+    <meta property="article:modified_time" content="2022-10-01T00:00:00">
   
   
   
@@ -100,6 +100,8 @@ Google表單在蒐集資料上非常好用，也會自動產生美觀的統計�
       <meta property="article:tag" content="複選題">
     
       <meta property="article:tag" content="R">
+    
+      <meta property="article:tag" content="splitstackshape">
     
   
 
@@ -120,14 +122,14 @@ Google表單在蒐集資料上非常好用，也會自動產生美觀的統計�
 
 
 
-    <title>用R整理Google表單的複選題資料</title>
+    <title>以splitstackshape套件整理Google表單的複選題資料</title>
 
     <link rel="icon" href="https://ccwupsy.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://ccwupsy.github.io/2022/09/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/">
+    <link rel="canonical" href="https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -300,15 +302,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      用R整理Google表單的複選題資料
+      以splitstackshape套件整理Google表單的複選題資料
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2022-09-29T00:00:00Z">
+      <time datetime="2022-10-01T00:00:00Z">
         
-  九月 29, 2022
+  十月 1, 2022
 
       </time>
     
@@ -486,45 +488,79 @@ qData1 &lt;- as.data.table(read_xlsx(&#39;GoogleFormsData.xlsx&#39;))</code></pr
 </div>
 <div id="重新整理複選題資料-以單一題目為例" class="section level2">
 <h2>重新整理複選題資料-以單一題目為例</h2>
-<p>用splitstackshape套件的cSplit()函數將”你在高中時期擔任過哪些職務？“中的回答按照逗號(,)分割，並置於不同行。type.convert=FALSE表示不另將變項轉換為其他形式。</p>
+<p>用splitstackshape套件的cSplit_e()函數將第2個column–“你在高中時期擔任過哪些職務？”中的回答按照逗號(,)分割，並置於不同行，有選擇該選項者填入1，未選擇該選項者填入0。</p>
 <pre class="r"><code>library(splitstackshape)
-qData1 &lt;- cSplit(qData1, &quot;你在高中時期擔任過哪些職務？&quot;, &quot;,&quot;, type.convert=FALSE)</code></pre>
+qData1 &lt;- cSplit_e(qData1, 2, type=&quot;character&quot;, fill=0)</code></pre>
 <table class="table table-striped" style="font-size: 12.5px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:center;">
-你在高中時期擔任過哪些職務？_1
+你在高中時期擔任過哪些職務？
 </th>
 <th style="text-align:center;">
-你在高中時期擔任過哪些職務？_2
+你在高中時期擔任過哪些職務？_社團社長
 </th>
 <th style="text-align:center;">
-你在高中時期擔任過哪些職務？_3
+你在高中時期擔任過哪些職務？_社團幹部
 </th>
 <th style="text-align:center;">
-你在高中時期擔任過哪些職務？_4
+你在高中時期擔任過哪些職務？_班代表
 </th>
 <th style="text-align:center;">
-你在高中時期擔任過哪些職務？_5
+你在高中時期擔任過哪些職務？_班級幹部
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center;">
-班級幹部
+班級幹部, 社團幹部, 畢聯會幹部
 </td>
 <td style="text-align:center;">
-社團幹部
+0
 </td>
 <td style="text-align:center;">
-畢聯會幹部
+1
 </td>
 <td style="text-align:center;">
-NA
+0
 </td>
 <td style="text-align:center;">
-NA
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
 </td>
 </tr>
 <tr>
@@ -532,241 +568,54 @@ NA
 班級幹部
 </td>
 <td style="text-align:center;">
-社團幹部
+0
 </td>
 <td style="text-align:center;">
-NA
+0
 </td>
 <td style="text-align:center;">
-NA
+0
 </td>
 <td style="text-align:center;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-班級幹部
-</td>
-<td style="text-align:center;">
-社團幹部
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-NA
+1
 </td>
 </tr>
 <tr>
 <td style="text-align:center;">
-班級幹部
+班級幹部, 社團幹部
 </td>
 <td style="text-align:center;">
-NA
+0
 </td>
 <td style="text-align:center;">
-NA
+1
 </td>
 <td style="text-align:center;">
-NA
+0
 </td>
 <td style="text-align:center;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-班級幹部
-</td>
-<td style="text-align:center;">
-社團幹部
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-NA
+1
 </td>
 </tr>
 <tr>
 <td style="text-align:center;">
-班代表
+班代表, 班級幹部, 社團幹部
 </td>
 <td style="text-align:center;">
-班級幹部
+0
 </td>
 <td style="text-align:center;">
-社團幹部
+1
 </td>
 <td style="text-align:center;">
-NA
+1
 </td>
 <td style="text-align:center;">
-NA
+1
 </td>
 </tr>
 </tbody>
 </table>
-<p>用tidyr套件的gather()函數，將Wide-format data轉為long-format data。原本有五行(即第6~10行)，每行的值都是所擔任的幹部名稱。gather()可以將這五行合併為一行(key)，並將每一行下面的反應放到新的一行(value)中。我們可以設定key column的名稱和value column的名稱。</p>
-<pre class="r"><code>library(tidyr)
-qData1 &lt;- gather(qData1, key = &quot;你在高中時期擔任過哪些職務？&quot;, value = value, c(6:10)) </code></pre>
-<p>用na.exclude()函數移除value一行中，數值為NA的列。讓資料更為精簡。</p>
-<pre class="r"><code>qData1 &lt;- na.exclude(qData1, ncol(qData1)) </code></pre>
-<p>用dplyr套件的mutate()函數將value改為題目敘述加上原有的職務名稱，並將”你在高中時期擔任過哪些職務？“都設為1。</p>
-<pre class="r"><code>library(dplyr)
-qData1 &lt;- mutate(qData1, value=paste0(&quot;你在高中時期擔任過哪些職務？&quot;, &#39;-&#39;, value), &quot;你在高中時期擔任過哪些職務？&quot;=1)</code></pre>
-<p>用tidyr套件的spread()函數將value column中的值設為key，“你在高中時期擔任過哪些職務？”的值設為value，將long-format data轉為wide-format data。</p>
-<pre class="r"><code>qData1 &lt;- spread(qData1, key = value, value = &quot;你在高中時期擔任過哪些職務？&quot;) </code></pre>
-<p>用dplyr套件的mutate_all()函數，將第6~14個columns的na都取代為0。</p>
-<pre class="r"><code>qData1 &lt;- mutate_at(qData1, vars(c(6:14)), ~replace(., is.na(.), 0))</code></pre>
-<table class="table table-striped" style="font-size: 12.5px; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:center;">
-你在高中時期擔任過哪些職務？-社團社長
-</th>
-<th style="text-align:center;">
-你在高中時期擔任過哪些職務？-社團幹部
-</th>
-<th style="text-align:center;">
-你在高中時期擔任過哪些職務？-班代表
-</th>
-<th style="text-align:center;">
-你在高中時期擔任過哪些職務？-班級幹部
-</th>
-<th style="text-align:center;">
-你在高中時期擔任過哪些職務？-畢聯會主席
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="將上述程式改為變數" class="section level2">
-<h2>將上述程式改為變數</h2>
-<p>新設一變數thiscname，令之為”你在高中時期擔任過哪些職務？“，並將上面程式碼中的column位置的數字全數以變數來表示。</p>
-<pre class="r"><code>qData1 &lt;- as.data.table(read_xlsx(&#39;GoogleFormsData.xlsx&#39;))
-thiscname &lt;- &quot;你在高中時期擔任過哪些職務？&quot;
-cn1 &lt;- ncol(qData1)
-qData1 &lt;- cSplit(qData1, thiscname, &quot;,&quot;, type.convert=FALSE)
-cn2 &lt;- ncol(qData1)
-qData1 &lt;- gather(qData1, key = thiscname, value = value, c(all_of(cn1):all_of(cn2)))                  
-qData1 &lt;- na.exclude(qData1, ncol(qData1)) 
-qData1 &lt;- mutate(qData1, value=paste0(thiscname, &#39;-&#39;, value), thiscname=1)
-cn1 &lt;- ncol(qData1)-1
-qData1 &lt;- spread(qData1, key = value, value = thiscname) 
-cn2 &lt;- ncol(qData1)
-qData1 &lt;- mutate_at(qData1, vars(c(all_of(cn1):all_of(cn2))), ~replace(., is.na(.), 0))</code></pre>
 </div>
 <div id="以for迴圈一次處理所有複選題的題目" class="section level2">
 <h2>以for迴圈一次處理所有複選題的題目</h2>
@@ -777,17 +626,8 @@ col_pos &lt;- c(2,6)
 cname &lt;- names(qData1)[col_pos]
 
 for (i in 1:length(cname)) {
-  thiscname &lt;- cname[i]
-  cn1 &lt;- ncol(qData1)
-  qData1 &lt;- cSplit(qData1, thiscname, &quot;,&quot;, type.convert=FALSE)
-  cn2 &lt;- ncol(qData1)
-  qData1 &lt;- gather(qData1, key = thiscname, value = value, c(all_of(cn1):all_of(cn2))) 
-  qData1 &lt;- na.exclude(qData1, ncol(qData1)) 
-  qData1 &lt;- mutate(qData1, value=paste0(thiscname, &#39;-&#39;, value), thiscname=1)
-  cn1 &lt;- ncol(qData1)-1
-  qData1 &lt;- spread(qData1, key = value, value = thiscname) 
-  cn2 &lt;- ncol(qData1)
-  qData1 &lt;- mutate_at(qData1, vars(c(all_of(cn1):all_of(cn2))), ~replace(., is.na(.), 0))
+  thisncolumn &lt;- col_pos[i]
+  qData1 &lt;- cSplit_e(qData1, thisncolumn, type=&quot;character&quot;, fill=0)
 }</code></pre>
 </div>
 <div id="寫成函數" class="section level2">
@@ -795,19 +635,9 @@ for (i in 1:length(cname)) {
 <p>最後將上述程式碼寫成函數，只要輸入dataframe的名稱和複選題在第幾行，就可以帶入函數處理。在下例中，函數名稱為arr_mulchoice，輸入的變數為df（dataframe的名稱）和col_pos（哪些題目是複選題需要處理）。</p>
 <pre class="r"><code>arr_mulchoice &lt;- function(df, col_pos){
   cname &lt;- names(qData1)[col_pos]
-
   for (i in 1:length(cname)) {
-    thiscname &lt;- cname[i]
-    cn1 &lt;- ncol(df)
-    df &lt;- cSplit(df, thiscname, &quot;,&quot;, type.convert=FALSE)
-    cn2 &lt;- ncol(df)
-    df &lt;- gather(df, key = thiscname, value = value, c(all_of(cn1):all_of(cn2))) 
-    df &lt;- na.exclude(df, ncol(df)) 
-    df &lt;- mutate(df, value=paste0(thiscname, &#39;-&#39;, value), thiscname=1)
-    cn1 &lt;- ncol(df)-1
-    df &lt;- spread(df, key = value, value = thiscname) 
-    cn2 &lt;- ncol(df)
-    df &lt;- mutate_at(df, vars(c(all_of(cn1):all_of(cn2))), ~replace(., is.na(.), 0))
+    thisncolumn &lt;- col_pos[i]
+    qData1 &lt;- cSplit_e(qData1, thisncolumn, type=&quot;character&quot;, fill=0)
   }
 return(df)
 }
@@ -815,6 +645,10 @@ return(df)
 qData1 &lt;- as.data.table(read_xlsx(&#39;GoogleFormsData.xlsx&#39;))
 col_pos &lt;- c(2,6)
 qData1 &lt;- arr_mulchoice(qData1, col_pos)</code></pre>
+</div>
+<div id="參考資料" class="section level2">
+<h2>參考資料</h2>
+<p>Stack overflow: <a href="https://stackoverflow.com/questions/10100887/split-a-column-of-concatenated-comma-delimited-data-and-recode-output-as-factors">Split a column of concatenated comma-delimited data and recode output as factors</a></p>
 </div>
 
               
@@ -836,6 +670,8 @@ qData1 &lt;- arr_mulchoice(qData1, col_pos)</code></pre>
 
   <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/r/">R</a>
 
+  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/splitstackshape/">splitstackshape</a>
+
                   </div>
                 
               
@@ -855,7 +691,7 @@ qData1 &lt;- arr_mulchoice(qData1, col_pos)</code></pre>
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/09/%E4%BB%A5tidyr%E5%92%8Cdplyr%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" data-tooltip="以tidyr和dplyr套件整理Google表單的複選題資料" aria-label="上一篇: 以tidyr和dplyr套件整理Google表單的複選題資料">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -873,19 +709,19 @@ qData1 &lt;- arr_mulchoice(qData1, col_pos)</code></pre>
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/09/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/09/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/09/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -927,7 +763,7 @@ qData1 &lt;- arr_mulchoice(qData1, col_pos)</code></pre>
           repo: 'ccwupsy.github.io',
           owner: 'ccwupsy',
           admin: ['ccwupsy'],
-          id: 'e079b4662afb9764726f3522fe118b4a',
+          id: 'a4760c552c2fcc4c6077888806b582fc',
           ...{"distractionfreemode":true,"enablehotkey":true,"language":"zh-TW","pagerdirection":"first","perpage":10}
         }).render('gitalk')
       })()
@@ -960,7 +796,7 @@ qData1 &lt;- arr_mulchoice(qData1, col_pos)</code></pre>
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/09/%E4%BB%A5tidyr%E5%92%8Cdplyr%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" data-tooltip="以tidyr和dplyr套件整理Google表單的複選題資料" aria-label="上一篇: 以tidyr和dplyr套件整理Google表單的複選題資料">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -978,19 +814,19 @@ qData1 &lt;- arr_mulchoice(qData1, col_pos)</code></pre>
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/09/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/09/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/09/%E7%94%A8r%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -1021,19 +857,19 @@ qData1 &lt;- arr_mulchoice(qData1, col_pos)</code></pre>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccwupsy.github.io%2F2022%2F09%2F%25E7%2594%25A8r%25E6%2595%25B4%25E7%2590%2586google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E8%25A4%2587%25E9%2581%25B8%25E9%25A1%258C%25E8%25B3%2587%25E6%2596%2599%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccwupsy.github.io%2F2022%2F10%2F%25E4%25BB%25A5splitstackshape%25E5%25A5%2597%25E4%25BB%25B6%25E6%2595%25B4%25E7%2590%2586google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E8%25A4%2587%25E9%2581%25B8%25E9%25A1%258C%25E8%25B3%2587%25E6%2596%2599%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fccwupsy.github.io%2F2022%2F09%2F%25E7%2594%25A8r%25E6%2595%25B4%25E7%2590%2586google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E8%25A4%2587%25E9%2581%25B8%25E9%25A1%258C%25E8%25B3%2587%25E6%2596%2599%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fccwupsy.github.io%2F2022%2F10%2F%25E4%25BB%25A5splitstackshape%25E5%25A5%2597%25E4%25BB%25B6%25E6%2595%25B4%25E7%2590%2586google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E8%25A4%2587%25E9%2581%25B8%25E9%25A1%258C%25E8%25B3%2587%25E6%2596%2599%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fccwupsy.github.io%2F2022%2F09%2F%25E7%2594%25A8r%25E6%2595%25B4%25E7%2590%2586google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E8%25A4%2587%25E9%2581%25B8%25E9%25A1%258C%25E8%25B3%2587%25E6%2596%2599%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fccwupsy.github.io%2F2022%2F10%2F%25E4%25BB%25A5splitstackshape%25E5%25A5%2597%25E4%25BB%25B6%25E6%2595%25B4%25E7%2590%2586google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E8%25A4%2587%25E9%2581%25B8%25E9%25A1%258C%25E8%25B3%2587%25E6%2596%2599%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>
