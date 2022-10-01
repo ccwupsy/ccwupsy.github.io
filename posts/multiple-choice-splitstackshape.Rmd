@@ -14,6 +14,9 @@ Google表單在題目為複選題時，會將填答者的回應全記錄在同�
 
 <!--more-->
 
+Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。
+
+
 ## 資料範例
 
 請[點選此處](https://docs.google.com/spreadsheets/d/1Z9hGVdNaNmk41hbScOB1SUzTVZ_An41Z/edit?usp=sharing&ouid=102534642616283273245&rtpof=true&sd=true)下載google forms的資料範例。
@@ -93,5 +96,5 @@ qData1 <- arr_mulchoice(qData1, col_pos)
 ```
 
 ## 參考資料
-Stack overflow: [Split a column of concatenated comma-delimited data and recode output as factors](https://stackoverflow.com/questions/10100887/split-a-column-of-concatenated-comma-delimited-data-and-recode-output-as-factors)
+A5C1D2H2I1M1N2O1R2T1's answer @Stack overflow: [Split a column of concatenated comma-delimited data and recode output as factors](https://stackoverflow.com/questions/10100887/split-a-column-of-concatenated-comma-delimited-data-and-recode-output-as-factors)
 

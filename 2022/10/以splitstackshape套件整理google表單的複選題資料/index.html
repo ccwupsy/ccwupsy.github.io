@@ -329,7 +329,8 @@ if (!doNotTrack) {
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <div id="資料範例" class="section level2">
+              <p>Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。</p>
+<div id="資料範例" class="section level2">
 <h2>資料範例</h2>
 <p>請<a href="https://docs.google.com/spreadsheets/d/1Z9hGVdNaNmk41hbScOB1SUzTVZ_An41Z/edit?usp=sharing&amp;ouid=102534642616283273245&amp;rtpof=true&amp;sd=true">點選此處</a>下載google forms的資料範例。</p>
 <p>資料為一虛擬的問卷資料，為25位大學生在五個問卷題目的回答。其中兩個題目是複選題，另有三個題目是四點量表的回答。</p>
@@ -648,7 +649,7 @@ qData1 &lt;- arr_mulchoice(qData1, col_pos)</code></pre>
 </div>
 <div id="參考資料" class="section level2">
 <h2>參考資料</h2>
-<p>Stack overflow: <a href="https://stackoverflow.com/questions/10100887/split-a-column-of-concatenated-comma-delimited-data-and-recode-output-as-factors">Split a column of concatenated comma-delimited data and recode output as factors</a></p>
+<p>A5C1D2H2I1M1N2O1R2T1’s answer <span class="citation">@Stack</span> overflow: <a href="https://stackoverflow.com/questions/10100887/split-a-column-of-concatenated-comma-delimited-data-and-recode-output-as-factors">Split a column of concatenated comma-delimited data and recode output as factors</a></p>
 </div>
 
               
