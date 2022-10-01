@@ -33,7 +33,7 @@
 &lt;link href=&#34;https://ccwupsy.github.io/rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
 
 
-&lt;p&gt;Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。本文說明如何用R的tidyr和dplyr套件的函數來處理Google表單的複選題資料，以利做後續分析。更簡單的作法是用splitstackshape套件來做，請見&lt;a href=&#34;multiple-choice-splitstackshape&#34;&gt;此文&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。本文說明如何用R的tidyr和dplyr套件的函數來處理Google表單的複選題資料，以利做後續分析。&lt;/p&gt;
 </description>
     </item>
     
