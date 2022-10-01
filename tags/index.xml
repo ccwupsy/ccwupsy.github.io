@@ -43,23 +43,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>dplyr</title>
-      <link>https://ccwupsy.github.io/tags/dplyr/</link>
-      <pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://ccwupsy.github.io/tags/dplyr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tidyr</title>
-      <link>https://ccwupsy.github.io/tags/tidyr/</link>
-      <pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://ccwupsy.github.io/tags/tidyr/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
