@@ -1,0 +1,91 @@
+---
+title: "將google表單的量尺資料轉為數字"
+date: "2022-10-02"
+tags:
+- google表單
+- 量尺轉換
+- R
+categories:
+- 資料整理
+---
+
+Google表單的量尺刻度有時會有文字說明，在後續分析時需要先轉為數字。本文說明如何以R來做轉換，以利後續的資料處理。
+
+<!--more-->
+
+Google表單的量尺刻度有時會有文字說明，在後續分析時需要先轉為數字。本文說明如何以R來做轉換，以利後續的資料處理。
+
+
+
+## 資料範例
+
+請[點選此處](https://docs.google.com/spreadsheets/d/1Z9hGVdNaNmk41hbScOB1SUzTVZ_An41Z/edit?usp=sharing&ouid=102534642616283273245&rtpof=true&sd=true)下載google forms的資料範例。
+
+資料為一虛擬的問卷資料，為25位大學生在五個問卷題目的回答。其中兩個題目是複選題，另有三個題目是四點量表的回答。
+
+## 讀入資料
+
+以readxl套件的read_xlsx()函數讀入xlsx檔。
+
+```{R}
+library(readxl)
+qData1 <- read_xlsx('GoogleFormsData.xlsx')
+```
+
+```{R, echo=FALSE}
+library(knitr)
+library(kableExtra)
+kbl(head(qData1[, c(1:6)]), align = "c") %>%
+  kable_styling(bootstrap_options = "striped", font_size = 12.5)
+```
+
+
+## 重新整理複選題資料-以單一題目、單一回應為例
+
+以第三題「你對系所課程在學什麼的瞭解程度」為例，如果我們想要將「3清楚」的回答改為數字3，可以用下列程式碼來做。程式碼中的sapply(x, FUN, ...)是將函數FUN套用在x上，x可以是向量或其他形式。此處的x為「qData1$你對系所課程在學什麼的瞭解程度」；FUN則為replace()函數，此replace()函數將x中屬於(%in%) val_replc("3清楚") 的元素原置換為 val_repl(數字3) 。
+
+
+```{R}
+val_replc <- "3清楚"
+val_repl <- 3
+
+qData1$你對系所課程在學什麼的瞭解程度 <- sapply(qData1$你對系所課程在學什麼的瞭解程度,  
+                                                function(x) replace(x, x %in% val_replc, val_repl))
+```
+
+```{R, echo=FALSE}
+library(knitr)
+library(kableExtra)
+kbl(head(qData1[, c(1:6)]), align = "c") %>%
+  kable_styling(bootstrap_options = "striped", font_size = 12.5)
+```
+
+
+## 以for迴圈一次處理所有回應
+
+以for迴圈對qData1的第3到5題，批次處理「1非常不清楚」到「4非常清楚」，依次替換為數字1到4。
+
+```{R}
+val_replc <- c("1非常不清楚", "2不清楚", "3清楚", "4非常清楚")
+val_repl <- c(1:4)
+col_repl <- c(3:5)
+
+for (i in 1:length(val_repl)){
+  qData1[col_repl] <- sapply(qData1[col_repl],  
+                             function(x) replace(x, x %in% val_replc[i], val_repl[i]))
+}
+```
+
+```{R, echo=FALSE}
+library(knitr)
+library(kableExtra)
+kbl(head(qData1[, c(1:6)]), align = "c") %>%
+  kable_styling(bootstrap_options = "striped", font_size = 12.5)
+```
+
+
+## 參考資料
+
+1. [Replace Multiple Values in Several Columns of Data Frame in R (2 Examples)](https://statisticsglobe.com/replace-multiple-values-several-columns-data-frame-r) @Statistics Globe
+2. [取代迴圈的 apply 家族](https://kemushi54.github.io/R-basic/apply_family.html) by Kemushi54
+3. [%IN% OPERATOR IN R](https://www.datasciencemadesimple.com/in-operator-in-r/) @DataScience Made Simple

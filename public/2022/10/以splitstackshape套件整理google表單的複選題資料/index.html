@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "以splitstackshape套件整理Google表單的複選題資料",
+  
+  "datePublished": "2022-10-01T00:00:00Z",
+  "dateModified": "2022-10-01T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Chia-Ching Wu",
+    
+    "image": "https://www.gravatar.com/avatar/4e0ad88ffa8b70f20aae59b6628df4ea"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "https:\/\/ccwupsy.github.io\/2022\/10\/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fun with data",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gravatar.com/avatar/4e0ad88ffa8b70f20aae59b6628df4ea"
+    }
+    
+  },
+  "description": "\r\rGoogle表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。\n",
+  "keywords": []
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.95.0 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Chia-Ching Wu">
+<meta name="keywords" content="">
+<meta name="description" content="
+
+
+
+
+Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。
+">
+
+
+<meta property="og:description" content="
+
+
+
+
+Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。
+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="以splitstackshape套件整理Google表單的複選題資料">
+<meta name="twitter:title" content="以splitstackshape套件整理Google表單的複選題資料">
+<meta property="og:url" content="https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/">
+<meta property="twitter:url" content="https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/">
+<meta property="og:site_name" content="Fun with data">
+<meta property="og:description" content="
+
+
+
+
+Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。
+">
+<meta name="twitter:description" content="
+
+
+
+
+Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。
+">
+<meta property="og:locale" content="zh-tw">
+
+  
+    <meta property="article:published_time" content="2022-10-01T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2022-10-01T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="資料整理">
+    
+  
+  
+    
+      <meta property="article:tag" content="google表單">
+    
+      <meta property="article:tag" content="複選題">
+    
+      <meta property="article:tag" content="R">
+    
+      <meta property="article:tag" content="splitstackshape">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/4e0ad88ffa8b70f20aae59b6628df4ea?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/4e0ad88ffa8b70f20aae59b6628df4ea?s=640">
+
+
+
+
+
+
+    <title>以splitstackshape套件整理Google表單的複選題資料</title>
+
+    <link rel="icon" href="https://ccwupsy.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha512-MLcK/YRapzET1qTBXrOiZE6bGBgtATMo2bIyalVJ8EKDEGNoeA3SPQkvWAR0zNS650YG13ocXBMeioDuZcSRuQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://ccwupsy.github.io/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TXKS8L48KM"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-TXKS8L48KM', { 'anonymize_ip': false });
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://ccwupsy.github.io/" aria-label="去首頁">Fun with data</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://ccwupsy.github.io/#about" aria-label="打開鏈接: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/4e0ad88ffa8b70f20aae59b6628df4ea?s=90" alt="作者的圖片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://ccwupsy.github.io/#about" aria-label="閱讀有關作者的更多信息">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/4e0ad88ffa8b70f20aae59b6628df4ea?s=110" alt="作者的圖片" />
+        </a>
+        <h4 class="sidebar-profile-name">Chia-Ching Wu</h4>
+        
+          <h5 class="sidebar-profile-bio">Fun with data</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://ccwupsy.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">首頁</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://ccwupsy.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">分類</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://ccwupsy.github.io/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">標籤</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://ccwupsy.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">所有文章</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://ccwupsy.github.io/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">關於</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/ccwupsy" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/19598772/ccwupsy" target="_blank" rel="noopener" title="Stack Overflow">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-stack-overflow" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://ccwupsy.github.io/index.xml" title="RSS">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Atom</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      以splitstackshape套件整理Google表單的複選題資料
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2022-10-01T00:00:00Z">
+        
+  十月 1, 2022
+
+      </time>
+    
+    
+  
+  
+    <span>分類</span>
+    
+      <a class="category-link" href="https://ccwupsy.github.io/categories/%e8%b3%87%e6%96%99%e6%95%b4%e7%90%86">資料整理</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。</p>
+<div id="資料範例" class="section level2">
+<h2>資料範例</h2>
+<p>請<a href="https://docs.google.com/spreadsheets/d/1Z9hGVdNaNmk41hbScOB1SUzTVZ_An41Z/edit?usp=sharing&amp;ouid=102534642616283273245&amp;rtpof=true&amp;sd=true">點選此處</a>下載google forms的資料範例。</p>
+<p>資料為一虛擬的問卷資料，為25位大學生在五個問卷題目的回答。其中兩個題目是複選題，另有三個題目是四點量表的回答。</p>
+</div>
+<div id="讀入資料" class="section level2">
+<h2>讀入資料</h2>
+<p>以readxl套件的read_xlsx()函數讀入xlsx檔。</p>
+<pre class="r"><code>library(readxl)
+qData1 &lt;- read_xlsx(&#39;GoogleFormsData.xlsx&#39;)</code></pre>
+<table class="table table-striped" style="font-size: 12.5px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+編號
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？
+</th>
+<th style="text-align:center;">
+你對系所課程在學什麼的瞭解程度
+</th>
+<th style="text-align:center;">
+你對科系專業證照如何取得的瞭解程度
+</th>
+<th style="text-align:center;">
+你對畢業後的職涯選擇的瞭解程度
+</th>
+<th style="text-align:center;">
+你希望除了專業知識之外還能精進哪些能力？
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+班級幹部, 社團幹部, 畢聯會幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+4非常清楚
+</td>
+<td style="text-align:center;">
+(2)外文能力, (11)程式與資訊能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+(2)外文能力, (3)表達與溝通能力, (4)獨立思考與問題解決能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+2不清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+(2)外文能力, (4)獨立思考與問題解決能力, (7)領導能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+班級幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+4非常清楚
+</td>
+<td style="text-align:center;">
+(3)表達與溝通能力, (4)獨立思考與問題解決能力, (5)創意與創新能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+(2)外文能力, (3)表達與溝通能力, (10)社交能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+班代表, 班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+4非常清楚
+</td>
+<td style="text-align:center;">
+2不清楚
+</td>
+<td style="text-align:center;">
+(3)表達與溝通能力, (4)獨立思考與問題解決能力, (10)社交能力
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="重新整理複選題資料-以單一題目為例" class="section level2">
+<h2>重新整理複選題資料-以單一題目為例</h2>
+<p>用splitstackshape套件的cSplit_e()函數將第2個column–“你在高中時期擔任過哪些職務？”中的回答按照逗號(,)分割，並置於不同行，有選擇該選項者填入1，未選擇該選項者填入0。</p>
+<pre class="r"><code>library(splitstackshape)
+qData1 &lt;- cSplit_e(qData1, 2, type=&quot;character&quot;, fill=0)</code></pre>
+<table class="table table-striped" style="font-size: 12.5px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？_社團社長
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？_社團幹部
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？_班代表
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？_班級幹部
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部, 畢聯會幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班代表, 班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="以for迴圈一次處理所有複選題的題目" class="section level2">
+<h2>以for迴圈一次處理所有複選題的題目</h2>
+<p>加上for迴圈後，即可一次處理多個複選題的回答。</p>
+<pre class="r"><code>qData1 &lt;- read_xlsx(&#39;GoogleFormsData.xlsx&#39;)
+
+col_pos &lt;- c(2,6)
+cname &lt;- names(qData1)[col_pos]
+
+for (i in 1:length(cname)) {
+  thisncolumn &lt;- col_pos[i]
+  qData1 &lt;- cSplit_e(qData1, thisncolumn, type=&quot;character&quot;, fill=0)
+}</code></pre>
+</div>
+<div id="寫成函數" class="section level2">
+<h2>寫成函數</h2>
+<p>最後將上述程式碼寫成函數，只要輸入dataframe的名稱和複選題在第幾行，就可以帶入函數處理。在下例中，函數名稱為arr_mulchoice，輸入的變數為df（dataframe的名稱）和col_pos（哪些題目是複選題需要處理）。</p>
+<pre class="r"><code>arr_mulchoice &lt;- function(df, col_pos){
+  cname &lt;- names(qData1)[col_pos]
+  for (i in 1:length(cname)) {
+    thisncolumn &lt;- col_pos[i]
+    df &lt;- cSplit_e(df, thisncolumn, type=&quot;character&quot;, fill=0)
+  }
+return(df)
+}
+
+qData1 &lt;- read_xlsx(&#39;GoogleFormsData.xlsx&#39;)
+col_pos &lt;- c(2,6)
+qData1 &lt;- arr_mulchoice(qData1, col_pos)</code></pre>
+</div>
+<div id="參考資料" class="section level2">
+<h2>參考資料</h2>
+<p>A5C1D2H2I1M1N2O1R2T1’s answer <span class="citation">@Stack</span> overflow: <a href="https://stackoverflow.com/questions/10100887/split-a-column-of-concatenated-comma-delimited-data-and-recode-output-as-factors">Split a column of concatenated comma-delimited data and recode output as factors</a></p>
+</div>
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">標籤</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/google%E8%A1%A8%E5%96%AE/">google表單</a>
+
+  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/%E8%A4%87%E9%81%B8%E9%A1%8C/">複選題</a>
+
+  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/r/">R</a>
+
+  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/splitstackshape/">splitstackshape</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/" data-tooltip="將google表單的量尺資料轉為數字" aria-label="下一篇: 將google表單的量尺資料轉為數字">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Facebook" aria-label="分享到 Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Twitter" aria-label="分享到 Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#gitalk" aria-label="發表評論">
+        <i class="fa fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="回到頂部">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+    <div id="gitalk">
+      <noscript>Please enable JavaScript to view the comments powered by Gitalk.</noscript>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js" integrity="sha512-EcTCcXV46teiNwe0VcnM5A038tcY+BaQYO4nW6Gh2i7v4/HjBVg7xx3+JBLl9WofDds//INJAiEGAtdgr8PWyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+      (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('gitalk').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
+          return;
+        }
+        new Gitalk({
+          clientID: '9ec8f3ee84bc4497e9c4',
+          clientSecret: '42865f54e9d5bd09e9e5aaf7390d1837ecaafbfb',
+          repo: 'ccwupsy.github.io',
+          owner: 'ccwupsy',
+          admin: ['ccwupsy'],
+          id: 'a4760c552c2fcc4c6077888806b582fc',
+          ...{"distractionfreemode":true,"enablehotkey":true,"language":"zh-TW","pagerdirection":"first","perpage":10}
+        }).render('gitalk')
+      })()
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2022 Chia-Ching Wu. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/" data-tooltip="將google表單的量尺資料轉為數字" aria-label="下一篇: 將google表單的量尺資料轉為數字">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="分享這個帖子">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Facebook" aria-label="分享到 Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Twitter" aria-label="分享到 Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#gitalk" aria-label="發表評論">
+        <i class="fa fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="回到頂部">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccwupsy.github.io%2F2022%2F10%2F%25E4%25BB%25A5splitstackshape%25E5%25A5%2597%25E4%25BB%25B6%25E6%2595%25B4%25E7%2590%2586google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E8%25A4%2587%25E9%2581%25B8%25E9%25A1%258C%25E8%25B3%2587%25E6%2596%2599%2F" aria-label="分享到 Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fccwupsy.github.io%2F2022%2F10%2F%25E4%25BB%25A5splitstackshape%25E5%25A5%2597%25E4%25BB%25B6%25E6%2595%25B4%25E7%2590%2586google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E8%25A4%2587%25E9%2581%25B8%25E9%25A1%258C%25E8%25B3%2587%25E6%2596%2599%2F" aria-label="分享到 Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fccwupsy.github.io%2F2022%2F10%2F%25E4%25BB%25A5splitstackshape%25E5%25A5%2597%25E4%25BB%25B6%25E6%2595%25B4%25E7%2590%2586google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E8%25A4%2587%25E9%2581%25B8%25E9%25A1%258C%25E8%25B3%2587%25E6%2596%2599%2F" aria-label="分享到 Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/4e0ad88ffa8b70f20aae59b6628df4ea?s=110" alt="作者的圖片" />
+    
+    <h4 id="about-card-name">Chia-Ching Wu</h4>
+    
+      <div id="about-card-bio">Fun with data</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Professor
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://ccwupsy.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://ccwupsy.github.io/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

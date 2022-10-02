@@ -1,0 +1,2 @@
+"0","library(splitstackshape)"
+"0","qData1 <- cSplit_e(qData1, 2, type=""character"", fill=0)"

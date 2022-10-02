@@ -1,0 +1,530 @@
+---
+title: "以tidyr和dplyr套件整理Google表單的複選題資料"
+date: "2022-09-29"
+tags:
+- google表單
+- 複選題
+- R
+- tidyr
+- dplyr
+categories:
+- 資料整理
+  
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+<link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+
+
+<p>Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。本文說明如何用R的tidyr和dplyr套件的函數來處理Google表單的複選題資料，以利做後續分析。</p>
+<!--more-->
+<p>Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。本文說明如何用R的tidyr和dplyr套件的函數來處理Google表單的複選題資料，以利做後續分析。更簡單的作法是用splitstackshape套件來做，請見<a href="https://ccwupsy.github.io/2022/10/以splitstackshape套件整理google表單的複選題資料/">此文</a>。</p>
+<div id="資料範例" class="section level2">
+<h2>資料範例</h2>
+<p>請<a href="https://docs.google.com/spreadsheets/d/1Z9hGVdNaNmk41hbScOB1SUzTVZ_An41Z/edit?usp=sharing&amp;ouid=102534642616283273245&amp;rtpof=true&amp;sd=true">點選此處</a>下載google forms的資料範例。</p>
+<p>資料為一虛擬的問卷資料，為25位大學生在五個問卷題目的回答。其中兩個題目是複選題，另有三個題目是四點量表的回答。</p>
+</div>
+<div id="讀入資料" class="section level2">
+<h2>讀入資料</h2>
+<pre class="r"><code>library(data.table)
+library(readxl)
+qData1 &lt;- as.data.table(read_xlsx(&#39;GoogleFormsData.xlsx&#39;))</code></pre>
+<table class="table table-striped" style="font-size: 12.5px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+編號
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？
+</th>
+<th style="text-align:center;">
+你對系所課程在學什麼的瞭解程度
+</th>
+<th style="text-align:center;">
+你對科系專業證照如何取得的瞭解程度
+</th>
+<th style="text-align:center;">
+你對畢業後的職涯選擇的瞭解程度
+</th>
+<th style="text-align:center;">
+你希望除了專業知識之外還能精進哪些能力？
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+班級幹部, 社團幹部, 畢聯會幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+4非常清楚
+</td>
+<td style="text-align:center;">
+(2)外文能力, (11)程式與資訊能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+(2)外文能力, (3)表達與溝通能力, (4)獨立思考與問題解決能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+2不清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+(2)外文能力, (4)獨立思考與問題解決能力, (7)領導能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+班級幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+4非常清楚
+</td>
+<td style="text-align:center;">
+(3)表達與溝通能力, (4)獨立思考與問題解決能力, (5)創意與創新能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+(2)外文能力, (3)表達與溝通能力, (10)社交能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+班代表, 班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+4非常清楚
+</td>
+<td style="text-align:center;">
+2不清楚
+</td>
+<td style="text-align:center;">
+(3)表達與溝通能力, (4)獨立思考與問題解決能力, (10)社交能力
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="重新整理複選題資料-以單一題目為例" class="section level2">
+<h2>重新整理複選題資料-以單一題目為例</h2>
+<p>用tidyr套件的seperate()函數將第2個column–“你在高中時期擔任過哪些職務？”中的回答按照逗號(,)分割，並置於不同行。這些新的行以”你在高中時期擔任過哪些職務？-1”到”你在高中時期擔任過哪些職務？-5”來命名。</p>
+<pre class="r"><code>library(tidyr)
+qData1 &lt;- separate(qData1, 2, paste0(&quot;你在高中時期擔任過哪些職務？-&quot;, 1:5), sep=&#39;,&#39;, remove=F)</code></pre>
+<table class="table table-striped" style="font-size: 12.5px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？-1
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？-2
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？-3
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？-4
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？-5
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部, 畢聯會幹部
+</td>
+<td style="text-align:center;">
+班級幹部
+</td>
+<td style="text-align:center;">
+社團幹部
+</td>
+<td style="text-align:center;">
+畢聯會幹部
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+班級幹部
+</td>
+<td style="text-align:center;">
+社團幹部
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+班級幹部
+</td>
+<td style="text-align:center;">
+社團幹部
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部
+</td>
+<td style="text-align:center;">
+班級幹部
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+班級幹部
+</td>
+<td style="text-align:center;">
+社團幹部
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班代表, 班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+班代表
+</td>
+<td style="text-align:center;">
+班級幹部
+</td>
+<td style="text-align:center;">
+社團幹部
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+<p>用tidyr套件的gather()函數，將Wide-format data轉為long-format data。原本有五行(即第3~7行)，每行的值都是所擔任的幹部名稱。gather()可以將這五行合併為一行(key)，並將每一行下面的反應放到新的一行(value)中。我們可以設定key column的名稱和value column的名稱。</p>
+<pre class="r"><code>qData1 &lt;- gather(qData1, key = &quot;你在高中時期擔任過哪些職務？-new&quot;, value = value, c(3:7)) </code></pre>
+<p>用na.exclude()函數移除value一行中，數值為NA的列。讓資料更為精簡。</p>
+<pre class="r"><code>qData1 &lt;- na.exclude(qData1, ncol(qData1)) </code></pre>
+<p>用dplyr套件的mutate()函數將value改為題目敘述加上原有的職務名稱，並將”你在高中時期擔任過哪些職務？-new”都設為1。</p>
+<pre class="r"><code>library(dplyr)
+qData1 &lt;- mutate(qData1, value=paste0(&quot;你在高中時期擔任過哪些職務？&quot;, &#39;-&#39;, value), &quot;你在高中時期擔任過哪些職務？-new&quot;=1)</code></pre>
+<p>用tidyr套件的spread()函數將value column中的值設為key，“你在高中時期擔任過哪些職務？-new”的值設為value，將long-format data轉為wide-format data。</p>
+<pre class="r"><code>qData1 &lt;- spread(qData1, key = value, value = &quot;你在高中時期擔任過哪些職務？-new&quot;) </code></pre>
+<p>用dplyr套件的mutate_all()函數，將第7~16個columns的na都取代為0。</p>
+<pre class="r"><code>qData1 &lt;- mutate_at(qData1, vars(c(7:16)), ~replace(., is.na(.), 0))</code></pre>
+<table class="table table-striped" style="font-size: 12.5px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？- 社團社長
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？- 社團幹部
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？- 班級幹部
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？- 畢聯會主席
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部, 畢聯會幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班代表, 班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="將上述程式改為變數" class="section level2">
+<h2>將上述程式改為變數</h2>
+<p>新設一變數thiscname，令之為”你在高中時期擔任過哪些職務？“，並將上面程式碼中的column位置的數字全數以變數來表示。在gather函數中，key必須是string或symbols，在此我們直接設為”key”即可。</p>
+<pre class="r"><code>qData1 &lt;- as.data.table(read_xlsx(&#39;GoogleFormsData.xlsx&#39;))
+ncolumn &lt;- 2
+thiscname &lt;- names(qData1)[ncolumn]
+qData1 &lt;- separate(qData1, ncolumn, paste0(thiscname, &quot;-&quot;, 1:5), sep=&#39;,&#39;, remove=F)
+qData1 &lt;- gather(qData1, key = key, value = value, c(all_of(ncolumn+1):all_of(ncolumn+5))) 
+qData1 &lt;- na.exclude(qData1, ncol(qData1)) 
+qData1 &lt;- mutate(qData1, value=paste0(thiscname, &#39;-&#39;, value), key=1)
+cn1 &lt;- ncol(qData1)-1
+qData1 &lt;- spread(qData1, key = value, value = key) 
+cn2 &lt;- ncol(qData1)
+qData1 &lt;- mutate_at(qData1, vars(c(all_of(cn1):all_of(cn2))), ~replace(., is.na(.), 0))</code></pre>
+</div>
+<div id="以for迴圈一次處理所有複選題的題目" class="section level2">
+<h2>以for迴圈一次處理所有複選題的題目</h2>
+<p>加上for迴圈後，即可一次處理多個複選題的回答。</p>
+<pre class="r"><code>qData1 &lt;- as.data.table(read_xlsx(&#39;GoogleFormsData.xlsx&#39;))
+
+col_pos &lt;- c(2,6)
+cname &lt;- names(qData1)[col_pos]
+
+for (i in 1:length(cname)) {
+  thiscname &lt;- cname[i]
+  thisncolumn &lt;- col_pos[i]
+  qData1 &lt;- separate(qData1, thisncolumn, paste0(thiscname, &quot;-&quot;, 1:5), sep=&#39;,&#39;, remove=F)
+  qData1 &lt;- gather(qData1, key = key, value = value, c(all_of(thisncolumn+1):all_of(thisncolumn+5))) 
+  qData1 &lt;- na.exclude(qData1, ncol(qData1)) 
+  qData1 &lt;- mutate(qData1, value=paste0(thiscname, &#39;-&#39;, value), key=1)
+  cn1 &lt;- ncol(qData1)-1
+  qData1 &lt;- spread(qData1, key = value, value = key) 
+  cn2 &lt;- ncol(qData1)
+  qData1 &lt;- mutate_at(qData1, vars(c(all_of(cn1):all_of(cn2))), ~replace(., is.na(.), 0))
+}</code></pre>
+</div>
+<div id="寫成函數" class="section level2">
+<h2>寫成函數</h2>
+<p>最後將上述程式碼寫成函數，只要輸入dataframe的名稱和複選題在第幾行，就可以帶入函數處理。在下例中，函數名稱為arr_mulchoice，輸入的變數為df（dataframe的名稱）和col_pos（哪些題目是複選題需要處理）。</p>
+<pre class="r"><code>arr_mulchoice &lt;- function(df, col_pos){
+  cname &lt;- names(qData1)[col_pos]
+  for (i in 1:length(cname)) {
+    thiscname &lt;- cname[i]
+    thisncolumn &lt;- col_pos[i]
+    df &lt;- separate(df, thisncolumn, paste0(thiscname, &quot;-&quot;, 1:5), sep=&#39;,&#39;, remove=F)
+    df &lt;- gather(df, key = key, value = value, c(all_of(thisncolumn+1):all_of(thisncolumn+5))) 
+    df &lt;- na.exclude(df, ncol(df)) 
+    df &lt;- mutate(df, value=paste0(thiscname, &#39;-&#39;, value), key=1)
+    cn1 &lt;- ncol(df)-1
+    df &lt;- spread(df, key = value, value = key) 
+    cn2 &lt;- ncol(df)
+    df &lt;- mutate_at(df, vars(c(all_of(cn1):all_of(cn2))), ~replace(., is.na(.), 0))
+  }
+return(df)
+}
+
+qData1 &lt;- as.data.table(read_xlsx(&#39;GoogleFormsData.xlsx&#39;))
+col_pos &lt;- c(2,6)
+qData1 &lt;- arr_mulchoice(qData1, col_pos)</code></pre>
+</div>
+<div id="參考資料" class="section level2">
+<h2>參考資料</h2>
+<p>Adam Quek’s answer <span class="citation">@Stack</span> overflow: <a href="https://stackoverflow.com/questions/44109108/r-how-to-separate-multiple-choice-multiple-answers-questionnaire-data-that-goo">R: How to separate multiple choice, multiple answers questionnaire data that Google Forms put in one variable?</a></p>
+</div>
