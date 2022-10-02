@@ -1,0 +1,339 @@
+---
+title: "以splitstackshape套件整理Google表單的複選題資料"
+date: "2022-10-01"
+tags:
+- google表單
+- 複選題
+- R
+categories:
+- 資料整理
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+<link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+
+
+<p>Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。</p>
+<!--more-->
+<p>Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。</p>
+<div id="資料範例" class="section level2">
+<h2>資料範例</h2>
+<p>請<a href="https://docs.google.com/spreadsheets/d/1Z9hGVdNaNmk41hbScOB1SUzTVZ_An41Z/edit?usp=sharing&amp;ouid=102534642616283273245&amp;rtpof=true&amp;sd=true">點選此處</a>下載google forms的資料範例。</p>
+<p>資料為一虛擬的問卷資料，為25位大學生在五個問卷題目的回答。其中兩個題目是複選題，另有三個題目是四點量表的回答。</p>
+</div>
+<div id="讀入資料" class="section level2">
+<h2>讀入資料</h2>
+<p>以readxl套件的read_xlsx()函數讀入xlsx檔。</p>
+<pre class="r"><code>library(readxl)
+qData1 &lt;- read_xlsx(&#39;GoogleFormsData.xlsx&#39;)</code></pre>
+<table class="table table-striped" style="font-size: 12.5px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+編號
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？
+</th>
+<th style="text-align:center;">
+你對系所課程在學什麼的瞭解程度
+</th>
+<th style="text-align:center;">
+你對科系專業證照如何取得的瞭解程度
+</th>
+<th style="text-align:center;">
+你對畢業後的職涯選擇的瞭解程度
+</th>
+<th style="text-align:center;">
+你希望除了專業知識之外還能精進哪些能力？
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+班級幹部, 社團幹部, 畢聯會幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+4非常清楚
+</td>
+<td style="text-align:center;">
+(2)外文能力, (11)程式與資訊能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+(2)外文能力, (3)表達與溝通能力, (4)獨立思考與問題解決能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+2不清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+(2)外文能力, (4)獨立思考與問題解決能力, (7)領導能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+班級幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+4非常清楚
+</td>
+<td style="text-align:center;">
+(3)表達與溝通能力, (4)獨立思考與問題解決能力, (5)創意與創新能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+(2)外文能力, (3)表達與溝通能力, (10)社交能力
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+班代表, 班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+3清楚
+</td>
+<td style="text-align:center;">
+4非常清楚
+</td>
+<td style="text-align:center;">
+2不清楚
+</td>
+<td style="text-align:center;">
+(3)表達與溝通能力, (4)獨立思考與問題解決能力, (10)社交能力
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="重新整理複選題資料-以單一題目為例" class="section level2">
+<h2>重新整理複選題資料-以單一題目為例</h2>
+<p>用splitstackshape套件的cSplit_e()函數將第2個column–“你在高中時期擔任過哪些職務？”中的回答按照逗號(,)分割，並置於不同行，有選擇該選項者填入1，未選擇該選項者填入0。</p>
+<pre class="r"><code>library(splitstackshape)
+qData1 &lt;- cSplit_e(qData1, 2, type=&quot;character&quot;, fill=0)</code></pre>
+<table class="table table-striped" style="font-size: 12.5px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？_社團社長
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？_社團幹部
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？_班代表
+</th>
+<th style="text-align:center;">
+你在高中時期擔任過哪些職務？_班級幹部
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部, 畢聯會幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+班代表, 班級幹部, 社團幹部
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="以for迴圈一次處理所有複選題的題目" class="section level2">
+<h2>以for迴圈一次處理所有複選題的題目</h2>
+<p>加上for迴圈後，即可一次處理多個複選題的回答。</p>
+<pre class="r"><code>qData1 &lt;- read_xlsx(&#39;GoogleFormsData.xlsx&#39;)
+
+col_pos &lt;- c(2,6)
+cname &lt;- names(qData1)[col_pos]
+
+for (i in 1:length(cname)) {
+  thisncolumn &lt;- col_pos[i]
+  qData1 &lt;- cSplit_e(qData1, thisncolumn, type=&quot;character&quot;, fill=0)
+}</code></pre>
+</div>
+<div id="寫成函數" class="section level2">
+<h2>寫成函數</h2>
+<p>最後將上述程式碼寫成函數，只要輸入dataframe的名稱和複選題在第幾行，就可以帶入函數處理。在下例中，函數名稱為arr_mulchoice，輸入的變數為df（dataframe的名稱）和col_pos（哪些題目是複選題需要處理）。</p>
+<pre class="r"><code>arr_mulchoice &lt;- function(df, col_pos){
+  cname &lt;- names(qData1)[col_pos]
+  for (i in 1:length(cname)) {
+    thisncolumn &lt;- col_pos[i]
+    df &lt;- cSplit_e(df, thisncolumn, type=&quot;character&quot;, fill=0)
+  }
+return(df)
+}
+
+qData1 &lt;- read_xlsx(&#39;GoogleFormsData.xlsx&#39;)
+col_pos &lt;- c(2,6)
+qData1 &lt;- arr_mulchoice(qData1, col_pos)</code></pre>
+</div>
+<div id="參考資料" class="section level2">
+<h2>參考資料</h2>
+<p>A5C1D2H2I1M1N2O1R2T1’s answer <span class="citation">@Stack</span> overflow: <a href="https://stackoverflow.com/questions/10100887/split-a-column-of-concatenated-comma-delimited-data-and-recode-output-as-factors">Split a column of concatenated comma-delimited data and recode output as factors</a></p>
+</div>
