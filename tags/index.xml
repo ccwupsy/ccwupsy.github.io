@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Fun with data</title>
+    <link>https://ccwupsy.github.io/tags/</link>
+    <description>Recent content in Tags on Fun with data</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ccwupsy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>google表單</title>
+      <link>https://ccwupsy.github.io/tags/google%E8%A1%A8%E5%96%AE/</link>
+      <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ccwupsy.github.io/tags/google%E8%A1%A8%E5%96%AE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://ccwupsy.github.io/tags/r/</link>
+      <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ccwupsy.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>量尺轉換</title>
+      <link>https://ccwupsy.github.io/tags/%E9%87%8F%E5%B0%BA%E8%BD%89%E6%8F%9B/</link>
+      <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ccwupsy.github.io/tags/%E9%87%8F%E5%B0%BA%E8%BD%89%E6%8F%9B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>複選題</title>
+      <link>https://ccwupsy.github.io/tags/%E8%A4%87%E9%81%B8%E9%A1%8C/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ccwupsy.github.io/tags/%E8%A4%87%E9%81%B8%E9%A1%8C/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fun with data</title>
+    <link>https://ccwupsy.github.io/</link>
+    <description>Recent content on Fun with data</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ccwupsy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>將google表單的量尺資料轉為數字</title>
+      <link>https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/</link>
+      <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/</guid>
+      <description>
+&lt;script src=&#34;https://ccwupsy.github.io/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://ccwupsy.github.io/rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;Google表單的量尺刻度有時會有文字說明，在後續分析時需要先轉為數字。本文說明如何以R來做轉換，以利後續的資料處理。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>以splitstackshape套件整理Google表單的複選題資料</title>
+      <link>https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/</guid>
+      <description>
+&lt;script src=&#34;https://ccwupsy.github.io/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://ccwupsy.github.io/rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+
+&lt;p&gt;Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
