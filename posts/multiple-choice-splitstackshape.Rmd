@@ -92,5 +92,5 @@ qData1 <- arr_mulchoice(qData1, col_pos)
 ```
 
 ## 參考資料
-A5C1D2H2I1M1N2O1R2T1's answer @Stack overflow: [Split a column of concatenated comma-delimited data and recode output as factors](https://stackoverflow.com/questions/10100887/split-a-column-of-concatenated-comma-delimited-data-and-recode-output-as-factors)
+A5C1D2H2I1M1N2O1R2T1's reply to [Split a column of concatenated comma-delimited data and recode output as factors](https://stackoverflow.com/questions/10100887/split-a-column-of-concatenated-comma-delimited-data-and-recode-output-as-factors) @Stack overflow
 
