@@ -1,0 +1,66 @@
+---
+title: "排序資料的整理"
+date: "2022-11-02"
+tags:
+- order
+- string
+- R
+categories:
+- 資料整理
+---
+
+在資料整理時，有時會用到排序的資料。本文說明如何用R來抽取某一個類別在排序資料中的順序，以及如何分析這些資料是否包含某些類別。
+
+<!--more-->
+
+在資料整理時，有時會用到排序的資料。本文以一虛擬的資料來說明如何用R來抽取某一個類別在排序資料中的順序，以及如何分析這些資料是否包含某些類別。
+
+
+## 資料範例
+
+請[點選此處](https://docs.google.com/spreadsheets/d/10syL_q-Y7UqwrAWSlBUV7zwClpLMtYNj/edit?usp=sharing&ouid=102534642616283273245&rtpof=true&sd=true)下載本文的資料範例。
+
+資料為一虛擬的問卷資料，為20位學生的背景資料，包括其編號、性別、就讀高中名稱、居住縣市、以及三個志願科系(志願1~志願3)名稱。
+
+## 讀入資料
+
+以readxl套件的read_xlsx()函數讀入xlsx檔。
+
+```{R}
+library(readxl)
+bgData <- read_xlsx('backgroundData.xlsx')
+head(bgData)
+```
+
+## 抽取出某一類別的排序
+
+若我們想要看每個學生對"心理學系"的偏好排序是多少，則可以下列方式來處理資料。
+
+首先用mutate()函數新增一"心理學系志願序"的欄位，置於"志願1"欄位之前，並預先填入NA。
+
+接著用for迴圈，對志願1到志願3的科系逐一做判斷。若"志願1"欄位為"心理學系"，則在"心理學系志願序"欄位中填入1，"志願2"、"志願3"依此類推。
+
+作法為對每個志願序(i)，都以str_detect()函數來判斷一欄位的每個細格是否包含"心理學系"，若有則傳回TRUE，無則傳回FALSE。接著再將TRUE值所對應的"心理學系志願序"一欄中填入其志願序(i)。
+
+```{R message=FALSE}
+library(tidyverse)
+
+bgData <- mutate(bgData, 心理學系志願序 = NA, .before="志願1")
+
+for (i in 1:3){
+  col_name <- paste("志願", i, sep = '')
+  bgData$心理學系志願序[str_detect(bgData[[col_name]], "心理學系")] <- i
+}
+
+head(bgData)
+```
+
+## 統計某一順序是否包含一或多個類別
+
+倘若我們想要知道，學生在科系偏好的排序上，某個排序的科系(例如，志願2)是否包含心理或社會工作相關科系，可以用str_detect()函數，來檢驗"志願2"這個column是否包含心理或社會("心理|社會工作")，若有包含，則傳回TRUE，否則傳回FALSE。最後我們再將此判斷為TRUE的資料，在新增的"心理社工"欄位中設為1。
+
+```{R}
+bgData <- mutate(bgData, 心理社工 = NA, .before="志願1")
+bgData$心理社工[(str_detect(bgData$志願2, "心理|社會工作"))] <- 1
+head(bgData)
+```

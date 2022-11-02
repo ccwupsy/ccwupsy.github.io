@@ -7,10 +7,10 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "將google表單的量尺資料轉為數字",
+  "headline": "將類別變項重新編碼",
   
-  "datePublished": "2022-10-02T00:00:00Z",
-  "dateModified": "2022-10-02T00:00:00Z",
+  "datePublished": "2022-11-02T00:00:00Z",
+  "dateModified": "2022-11-02T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "Chia-Ching Wu",
@@ -20,7 +20,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/ccwupsy.github.io\/2022\/10\/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97\/" 
+    "@id": "https:\/\/ccwupsy.github.io\/2022\/11\/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -32,7 +32,7 @@
     }
     
   },
-  "description": "\r\rGoogle表單的量尺刻度有時會有文字說明，在後續分析時需要先轉為數字。本文說明如何以R來做轉換，以利後續的資料處理。\n",
+  "description": "\r在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。\n",
   "keywords": []
 }
 
@@ -46,46 +46,38 @@
 <meta name="description" content="
 
 
-
-
-Google表單的量尺刻度有時會有文字說明，在後續分析時需要先轉為數字。本文說明如何以R來做轉換，以利後續的資料處理。
+在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
 ">
 
 
 <meta property="og:description" content="
 
 
-
-
-Google表單的量尺刻度有時會有文字說明，在後續分析時需要先轉為數字。本文說明如何以R來做轉換，以利後續的資料處理。
+在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="將google表單的量尺資料轉為數字">
-<meta name="twitter:title" content="將google表單的量尺資料轉為數字">
-<meta property="og:url" content="https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/">
-<meta property="twitter:url" content="https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/">
+<meta property="og:title" content="將類別變項重新編碼">
+<meta name="twitter:title" content="將類別變項重新編碼">
+<meta property="og:url" content="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/">
+<meta property="twitter:url" content="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/">
 <meta property="og:site_name" content="Fun with data">
 <meta property="og:description" content="
 
 
-
-
-Google表單的量尺刻度有時會有文字說明，在後續分析時需要先轉為數字。本文說明如何以R來做轉換，以利後續的資料處理。
+在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
 ">
 <meta name="twitter:description" content="
 
 
-
-
-Google表單的量尺刻度有時會有文字說明，在後續分析時需要先轉為數字。本文說明如何以R來做轉換，以利後續的資料處理。
+在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
 ">
 <meta property="og:locale" content="zh-tw">
 
   
-    <meta property="article:published_time" content="2022-10-02T00:00:00">
+    <meta property="article:published_time" content="2022-11-02T00:00:00">
   
   
-    <meta property="article:modified_time" content="2022-10-02T00:00:00">
+    <meta property="article:modified_time" content="2022-11-02T00:00:00">
   
   
   
@@ -95,9 +87,9 @@ Google表單的量尺刻度有時會有文字說明，在後續分析時需要�
   
   
     
-      <meta property="article:tag" content="google表單">
+      <meta property="article:tag" content="coding">
     
-      <meta property="article:tag" content="量尺轉換">
+      <meta property="article:tag" content="category">
     
       <meta property="article:tag" content="R">
     
@@ -120,14 +112,14 @@ Google表單的量尺刻度有時會有文字說明，在後續分析時需要�
 
 
 
-    <title>將google表單的量尺資料轉為數字</title>
+    <title>將類別變項重新編碼</title>
 
     <link rel="icon" href="https://ccwupsy.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/">
+    <link rel="canonical" href="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -310,15 +302,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      將google表單的量尺資料轉為數字
+      將類別變項重新編碼
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2022-10-02T00:00:00Z">
+      <time datetime="2022-11-02T00:00:00Z">
         
-  十月 2, 2022
+  十一月 2, 2022
 
       </time>
     
@@ -337,482 +329,91 @@ if (!doNotTrack) {
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>Google表單的量尺刻度有時會有文字說明，在後續分析時需要先轉為數字。本文說明如何以R來做轉換，以利後續的資料處理。</p>
+              <p>在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。</p>
 <div id="資料範例" class="section level2">
 <h2>資料範例</h2>
-<p>請<a href="https://docs.google.com/spreadsheets/d/1Z9hGVdNaNmk41hbScOB1SUzTVZ_An41Z/edit?usp=sharing&amp;ouid=102534642616283273245&amp;rtpof=true&amp;sd=true">點選此處</a>下載google forms的資料範例。</p>
-<p>資料為一虛擬的問卷資料，為25位大學生在五個問卷題目的回答。其中兩個題目是複選題，另有三個題目是四點量表的回答。</p>
+<p>請<a href="https://docs.google.com/spreadsheets/d/10syL_q-Y7UqwrAWSlBUV7zwClpLMtYNj/edit?usp=sharing&amp;ouid=102534642616283273245&amp;rtpof=true&amp;sd=true">點選此處</a>下載本文的資料範例。</p>
+<p>資料為一虛擬的問卷資料，為20位學生的背景資料，包括其編號、性別、就讀高中名稱、居住縣市、以及三個志願科系(志願1~志願3)名稱。</p>
 </div>
 <div id="讀入資料" class="section level2">
 <h2>讀入資料</h2>
 <p>以readxl套件的read_xlsx()函數讀入xlsx檔。</p>
 <pre class="r"><code>library(readxl)
-qData1 &lt;- read_xlsx(&#39;GoogleFormsData.xlsx&#39;)</code></pre>
-<table class="table table-striped" style="font-size: 12.5px; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:center;">
-編號
-</th>
-<th style="text-align:center;">
-你在高中時期擔任過哪些職務？
-</th>
-<th style="text-align:center;">
-你對系所課程在學什麼的瞭解程度
-</th>
-<th style="text-align:center;">
-你對科系專業證照如何取得的瞭解程度
-</th>
-<th style="text-align:center;">
-你對畢業後的職涯選擇的瞭解程度
-</th>
-<th style="text-align:center;">
-你希望除了專業知識之外還能精進哪些能力？
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-班級幹部, 社團幹部, 畢聯會幹部
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-4非常清楚
-</td>
-<td style="text-align:center;">
-(2)外文能力, (11)程式與資訊能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2
-</td>
-<td style="text-align:center;">
-班級幹部, 社團幹部
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-(2)外文能力, (3)表達與溝通能力, (4)獨立思考與問題解決能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-班級幹部, 社團幹部
-</td>
-<td style="text-align:center;">
-2不清楚
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-(2)外文能力, (4)獨立思考與問題解決能力, (7)領導能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-班級幹部
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-4非常清楚
-</td>
-<td style="text-align:center;">
-(3)表達與溝通能力, (4)獨立思考與問題解決能力, (5)創意與創新能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5
-</td>
-<td style="text-align:center;">
-班級幹部, 社團幹部
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-(2)外文能力, (3)表達與溝通能力, (10)社交能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-6
-</td>
-<td style="text-align:center;">
-班代表, 班級幹部, 社團幹部
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-4非常清楚
-</td>
-<td style="text-align:center;">
-2不清楚
-</td>
-<td style="text-align:center;">
-(3)表達與溝通能力, (4)獨立思考與問題解決能力, (10)社交能力
-</td>
-</tr>
-</tbody>
-</table>
+bgData &lt;- read_xlsx(&#39;backgroundData.xlsx&#39;)
+head(bgData)</code></pre>
+<pre><code>## # A tibble: 6 × 7
+##    編號 性別  就讀高中名稱         居住縣市 志願1        志願2        志願3   
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;   
+## 1     1 女    桃園市立大園國際高中 新北市   心理學系     社會工作學系 &lt;NA&gt;    
+## 2     2 男    私立育達高中         臺北市   心理學系     社會工作學系 管理學系
+## 3     3 女    私立崇光中學         新北市   心理學系     &lt;NA&gt;         &lt;NA&gt;    
+## 4     4 女    私立崇光中學         新北市   心理學系     觀光學系     &lt;NA&gt;    
+## 5     5 女    新北市立林口高中     桃園市   心理學系     &lt;NA&gt;         &lt;NA&gt;    
+## 6     6 女    國立基隆女中         新北市   社會工作學系 管理學系     心理學系</code></pre>
 </div>
-<div id="重新整理複選題資料-以單一題目單一回應為例" class="section level2">
-<h2>重新整理複選題資料-以單一題目、單一回應為例</h2>
-<p>以第三題「你對系所課程在學什麼的瞭解程度」為例，如果我們想要將「3清楚」的回答改為數字3，可以用下列程式碼來做。程式碼中的sapply(x, FUN, …)是將函數FUN套用在x上，x可以是向量或其他形式。此處的x為「qData1$你對系所課程在學什麼的瞭解程度」；FUN則為replace()函數，此replace()函數將x中屬於(%in%) val_replc(“3清楚”) 的元素原置換為 val_repl(數字3) 。</p>
-<pre class="r"><code>val_replc &lt;- &quot;3清楚&quot;
-val_repl &lt;- 3
+<div id="將類別變項重新分類至新類別-範例一" class="section level2">
+<h2>將類別變項重新分類至新類別 — 範例一</h2>
+<p>由資料中可以看到，居住縣市一欄為各縣市的名稱。假若我們不需要將縣市分得這麼細，只需要分成北中南東和外島五大區，可用下列程式碼來達成。</p>
+<p>首先將五大區域的城市名稱分別先列出來，並產生一個區域的列表(area_list)。</p>
+<pre class="r"><code>library(tidyverse)
 
-qData1$你對系所課程在學什麼的瞭解程度 &lt;- sapply(qData1$你對系所課程在學什麼的瞭解程度,  
-                                                function(x) replace(x, x %in% val_replc, val_repl))</code></pre>
-<table class="table table-striped" style="font-size: 12.5px; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:center;">
-編號
-</th>
-<th style="text-align:center;">
-你在高中時期擔任過哪些職務？
-</th>
-<th style="text-align:center;">
-你對系所課程在學什麼的瞭解程度
-</th>
-<th style="text-align:center;">
-你對科系專業證照如何取得的瞭解程度
-</th>
-<th style="text-align:center;">
-你對畢業後的職涯選擇的瞭解程度
-</th>
-<th style="text-align:center;">
-你希望除了專業知識之外還能精進哪些能力？
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-班級幹部, 社團幹部, 畢聯會幹部
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-4非常清楚
-</td>
-<td style="text-align:center;">
-(2)外文能力, (11)程式與資訊能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2
-</td>
-<td style="text-align:center;">
-班級幹部, 社團幹部
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-(2)外文能力, (3)表達與溝通能力, (4)獨立思考與問題解決能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-班級幹部, 社團幹部
-</td>
-<td style="text-align:center;">
-2不清楚
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-(2)外文能力, (4)獨立思考與問題解決能力, (7)領導能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-班級幹部
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-4非常清楚
-</td>
-<td style="text-align:center;">
-(3)表達與溝通能力, (4)獨立思考與問題解決能力, (5)創意與創新能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5
-</td>
-<td style="text-align:center;">
-班級幹部, 社團幹部
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-3清楚
-</td>
-<td style="text-align:center;">
-(2)外文能力, (3)表達與溝通能力, (10)社交能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-6
-</td>
-<td style="text-align:center;">
-班代表, 班級幹部, 社團幹部
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-4非常清楚
-</td>
-<td style="text-align:center;">
-2不清楚
-</td>
-<td style="text-align:center;">
-(3)表達與溝通能力, (4)獨立思考與問題解決能力, (10)社交能力
-</td>
-</tr>
-</tbody>
-</table>
+set1 &lt;- list(&#39;臺北市&#39;, &#39;新北市&#39;, &#39;基隆市&#39;, &#39;新竹市&#39;, &#39;桃園市&#39;, &#39;新竹縣&#39;, &#39;宜蘭縣&#39;)
+set2 &lt;- list(&#39;臺中市&#39;, &#39;苗栗縣&#39;, &#39;彰化縣&#39;, &#39;南投縣&#39;, &#39;雲林縣&#39;)
+set3 &lt;- list(&#39;高雄市&#39;, &#39;臺南市&#39;, &#39;嘉義市&#39;, &#39;嘉義縣&#39;, &#39;屏東縣&#39;, &#39;澎湖縣&#39;)
+set4 &lt;- list(&#39;花蓮縣&#39;, &#39;臺東縣&#39;)
+set5 &lt;- list(&#39;金門縣&#39;, &#39;連江縣&#39;)
+area_list &lt;- list(&quot;北部&quot;=set1, &quot;中部&quot;=set2, &quot;南部&quot;=set3, &quot;東部&quot;=set4, &quot;外島&quot;=set5)</code></pre>
+<p>接著，用mutate()函數新增一”區域”的欄位，置於”居住縣市1”欄位之前，並預先填入NA。</p>
+<p>然後用for迴圈，對居住縣市的每一筆資料逐一做判斷。若”居住縣市”在列表中屬於某個區域，則在”區域”欄位中填入該區域。</p>
+<p>作法為對居住縣市的每一筆資料，都以<code>sapply(area_list, function(x) bgData$居住縣市[i] %in% x)</code>的函數來判斷該資料屬於哪一個區域，對此做TRUE/FALSE的判斷。判斷完後，用which()函數傳回TRUE所在的結果。最後再以names()傳回區域名稱。</p>
+<p>傳回的區域名稱，直接寫入新的區域欄位即可。</p>
+<pre class="r"><code>library(tidyverse)
+
+bgData &lt;- mutate(bgData, 區域 = NA, .before=&quot;居住縣市&quot;)
+
+for (i in 1:nrow(bgData)){
+  bgData$區域[i] &lt;- names(which(sapply(area_list, function(x) bgData$居住縣市[i] %in% x)))
+}
+
+head(bgData)</code></pre>
+<pre><code>## # A tibble: 6 × 8
+##    編號 性別  就讀高中名稱         區域  居住縣市 志願1        志願2       志願3
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;
+## 1     1 女    桃園市立大園國際高中 北部  新北市   心理學系     社會工作學… &lt;NA&gt; 
+## 2     2 男    私立育達高中         北部  臺北市   心理學系     社會工作學… 管理…
+## 3     3 女    私立崇光中學         北部  新北市   心理學系     &lt;NA&gt;        &lt;NA&gt; 
+## 4     4 女    私立崇光中學         北部  新北市   心理學系     觀光學系    &lt;NA&gt; 
+## 5     5 女    新北市立林口高中     北部  桃園市   心理學系     &lt;NA&gt;        &lt;NA&gt; 
+## 6     6 女    國立基隆女中         北部  新北市   社會工作學系 管理學系    心理…</code></pre>
 </div>
-<div id="以for迴圈一次處理所有回應" class="section level2">
-<h2>以for迴圈一次處理所有回應</h2>
-<p>以for迴圈對qData1的第3到5題，批次處理「1非常不清楚」到「4非常清楚」，依次替換為數字1到4。</p>
-<pre class="r"><code>val_replc &lt;- c(&quot;1非常不清楚&quot;, &quot;2不清楚&quot;, &quot;3清楚&quot;, &quot;4非常清楚&quot;)
-val_repl &lt;- c(1:4)
-col_repl &lt;- c(3:5)
-
-for (i in 1:length(val_repl)){
-  qData1[col_repl] &lt;- sapply(qData1[col_repl],  
-                             function(x) replace(x, x %in% val_replc[i], val_repl[i]))
-}</code></pre>
-<table class="table table-striped" style="font-size: 12.5px; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:center;">
-編號
-</th>
-<th style="text-align:center;">
-你在高中時期擔任過哪些職務？
-</th>
-<th style="text-align:center;">
-你對系所課程在學什麼的瞭解程度
-</th>
-<th style="text-align:center;">
-你對科系專業證照如何取得的瞭解程度
-</th>
-<th style="text-align:center;">
-你對畢業後的職涯選擇的瞭解程度
-</th>
-<th style="text-align:center;">
-你希望除了專業知識之外還能精進哪些能力？
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-班級幹部, 社團幹部, 畢聯會幹部
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-(2)外文能力, (11)程式與資訊能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2
-</td>
-<td style="text-align:center;">
-班級幹部, 社團幹部
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-(2)外文能力, (3)表達與溝通能力, (4)獨立思考與問題解決能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-班級幹部, 社團幹部
-</td>
-<td style="text-align:center;">
-2
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-(2)外文能力, (4)獨立思考與問題解決能力, (7)領導能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-班級幹部
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-(3)表達與溝通能力, (4)獨立思考與問題解決能力, (5)創意與創新能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5
-</td>
-<td style="text-align:center;">
-班級幹部, 社團幹部
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-(2)外文能力, (3)表達與溝通能力, (10)社交能力
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-6
-</td>
-<td style="text-align:center;">
-班代表, 班級幹部, 社團幹部
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-2
-</td>
-<td style="text-align:center;">
-(3)表達與溝通能力, (4)獨立思考與問題解決能力, (10)社交能力
-</td>
-</tr>
-</tbody>
-</table>
+<div id="將類別變項重新分類至新類別-範例二" class="section level2">
+<h2>將類別變項重新分類至新類別 — 範例二</h2>
+<p>我們以將”學生的就讀高中”重新分類為”公立/市立/私立”為例，來看看在此情況下如何將變項重新編碼。</p>
+<p>觀察資料型態後，我們發現所有的”就讀高中名稱”中，都有”公立”、“市立”或”私立”幾個類別。因此，要重新分類時，只需要將原本的資料中的這些關鍵字抽取出來即可。作法如下：</p>
+<p>同樣先建立一個新的欄位—公私立。
+接著用for迴圈，以gregexpr(pattern =‘立’, bgData$就讀高中名稱[i])[[1]][1]將每筆資料中有”立”的位置找出來。找出來後，將位置儲存為index_letter。
+接著再將資料中，位置從index_letter-1到index_letter的字元取出，存入”公私立”欄位中相對應的位置即可。</p>
+<pre class="r"><code>bgData &lt;- mutate(bgData, 公私立 = NA, .before=&quot;就讀高中名稱&quot;)
+for (i in 1:nrow(bgData)){
+  index_letter &lt;- gregexpr(pattern =&#39;立&#39;, bgData$就讀高中名稱[i])[[1]][1]
+  bgData$公私立[i] &lt;- substr(bgData$就讀高中名稱[i], index_letter-1, index_letter)
+}
+head(bgData)</code></pre>
+<pre><code>## # A tibble: 6 × 9
+##    編號 性別  公私立 就讀高中名稱         區域  居住縣市 志願1       志願2 志願3
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;                &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;
+## 1     1 女    市立   桃園市立大園國際高中 北部  新北市   心理學系    社會… &lt;NA&gt; 
+## 2     2 男    私立   私立育達高中         北部  臺北市   心理學系    社會… 管理…
+## 3     3 女    私立   私立崇光中學         北部  新北市   心理學系    &lt;NA&gt;  &lt;NA&gt; 
+## 4     4 女    私立   私立崇光中學         北部  新北市   心理學系    觀光… &lt;NA&gt; 
+## 5     5 女    市立   新北市立林口高中     北部  桃園市   心理學系    &lt;NA&gt;  &lt;NA&gt; 
+## 6     6 女    國立   國立基隆女中         北部  新北市   社會工作學… 管理… 心理…</code></pre>
 </div>
 <div id="參考資料" class="section level2">
 <h2>參考資料</h2>
 <ol style="list-style-type: decimal">
-<li><a href="https://statisticsglobe.com/replace-multiple-values-several-columns-data-frame-r">Replace Multiple Values in Several Columns of Data Frame in R (2 Examples)</a> <span class="citation">@Statistics</span> Globe</li>
-<li><a href="https://kemushi54.github.io/R-basic/apply_family.html">取代迴圈的 apply 家族</a> by Kemushi54</li>
+<li>Adam Waring’s reply to <a href="https://stackoverflow.com/questions/17358289/finding-elements-of-lists-in-r">Finding Elements of Lists in R</a> <span class="citation">@Stack</span> overflow</li>
+<li>mnel’s reply to <a href="https://stackoverflow.com/questions/14249562/find-the-location-of-a-character-in-string">Find the location of a character in string</a> <span class="citation">@Stack</span> overflow</li>
 <li><a href="https://www.datasciencemadesimple.com/in-operator-in-r/">%IN% OPERATOR IN R</a> <span class="citation">@DataScience</span> Made Simple</li>
 </ol>
 </div>
@@ -830,9 +431,9 @@ for (i in 1:length(val_repl)){
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/google%E8%A1%A8%E5%96%AE/">google表單</a>
+  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/coding/">coding</a>
 
-  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/%E9%87%8F%E5%B0%BA%E8%BD%89%E6%8F%9B/">量尺轉換</a>
+  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/category/">category</a>
 
   <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/r/">R</a>
 
@@ -847,7 +448,7 @@ for (i in 1:length(val_repl)){
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/10/%E4%BB%A5%E9%83%A8%E4%BB%BD%E6%96%87%E5%AD%97%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8Dgoogle%E8%A1%A8%E5%96%AE%E7%9A%84%E6%AC%84%E4%BD%8D%E5%90%8D%E7%A8%B1/" data-tooltip="以部份文字重新命名google表單的欄位名稱" aria-label="下一篇: 以部份文字重新命名google表單的欄位名稱">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -855,7 +456,7 @@ for (i in 1:length(val_repl)){
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" data-tooltip="以splitstackshape套件整理Google表單的複選題資料" aria-label="上一篇: 以splitstackshape套件整理Google表單的複選題資料">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/11/%E6%8E%92%E5%BA%8F%E8%B3%87%E6%96%99%E7%9A%84%E6%95%B4%E7%90%86/" data-tooltip="排序資料的整理" aria-label="上一篇: 排序資料的整理">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -873,19 +474,19 @@ for (i in 1:length(val_repl)){
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -927,7 +528,7 @@ for (i in 1:length(val_repl)){
           repo: 'ccwupsy.github.io',
           owner: 'ccwupsy',
           admin: ['ccwupsy'],
-          id: 'efafa21d78f28724f59775a6d354b5fd',
+          id: '67c165419999b5b3977d1209a4f6b4d4',
           ...{"distractionfreemode":true,"enablehotkey":true,"language":"zh-TW","pagerdirection":"first","perpage":10}
         }).render('gitalk')
       })()
@@ -952,7 +553,7 @@ for (i in 1:length(val_repl)){
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/10/%E4%BB%A5%E9%83%A8%E4%BB%BD%E6%96%87%E5%AD%97%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8Dgoogle%E8%A1%A8%E5%96%AE%E7%9A%84%E6%AC%84%E4%BD%8D%E5%90%8D%E7%A8%B1/" data-tooltip="以部份文字重新命名google表單的欄位名稱" aria-label="下一篇: 以部份文字重新命名google表單的欄位名稱">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -960,7 +561,7 @@ for (i in 1:length(val_repl)){
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/" data-tooltip="以splitstackshape套件整理Google表單的複選題資料" aria-label="上一篇: 以splitstackshape套件整理Google表單的複選題資料">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/11/%E6%8E%92%E5%BA%8F%E8%B3%87%E6%96%99%E7%9A%84%E6%95%B4%E7%90%86/" data-tooltip="排序資料的整理" aria-label="上一篇: 排序資料的整理">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -978,19 +579,19 @@ for (i in 1:length(val_repl)){
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -1021,19 +622,19 @@ for (i in 1:length(val_repl)){
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccwupsy.github.io%2F2022%2F10%2F%25E5%25B0%2587google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E9%2587%258F%25E5%25B0%25BA%25E8%25B3%2587%25E6%2596%2599%25E8%25BD%2589%25E7%2582%25BA%25E6%2595%25B8%25E5%25AD%2597%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccwupsy.github.io%2F2022%2F11%2F%25E5%25B0%2587%25E9%25A1%259E%25E5%2588%25A5%25E8%25AE%258A%25E9%25A0%2585%25E9%2587%258D%25E6%2596%25B0%25E7%25B7%25A8%25E7%25A2%25BC%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fccwupsy.github.io%2F2022%2F10%2F%25E5%25B0%2587google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E9%2587%258F%25E5%25B0%25BA%25E8%25B3%2587%25E6%2596%2599%25E8%25BD%2589%25E7%2582%25BA%25E6%2595%25B8%25E5%25AD%2597%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fccwupsy.github.io%2F2022%2F11%2F%25E5%25B0%2587%25E9%25A1%259E%25E5%2588%25A5%25E8%25AE%258A%25E9%25A0%2585%25E9%2587%258D%25E6%2596%25B0%25E7%25B7%25A8%25E7%25A2%25BC%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fccwupsy.github.io%2F2022%2F10%2F%25E5%25B0%2587google%25E8%25A1%25A8%25E5%2596%25AE%25E7%259A%2584%25E9%2587%258F%25E5%25B0%25BA%25E8%25B3%2587%25E6%2596%2599%25E8%25BD%2589%25E7%2582%25BA%25E6%2595%25B8%25E5%25AD%2597%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fccwupsy.github.io%2F2022%2F11%2F%25E5%25B0%2587%25E9%25A1%259E%25E5%2588%25A5%25E8%25AE%258A%25E9%25A0%2585%25E9%2587%258D%25E6%2596%25B0%25E7%25B7%25A8%25E7%25A2%25BC%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>

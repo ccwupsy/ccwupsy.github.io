@@ -1,0 +1,98 @@
+---
+title: "將類別變項重新編碼"
+date: "2022-11-02"
+tags:
+- coding
+- category
+- R
+categories:
+- 資料整理
+---
+
+在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
+
+
+<!--more-->
+
+在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
+
+
+
+## 資料範例
+
+請[點選此處](https://docs.google.com/spreadsheets/d/10syL_q-Y7UqwrAWSlBUV7zwClpLMtYNj/edit?usp=sharing&ouid=102534642616283273245&rtpof=true&sd=true)下載本文的資料範例。
+
+資料為一虛擬的問卷資料，為20位學生的背景資料，包括其編號、性別、就讀高中名稱、居住縣市、以及三個志願科系(志願1~志願3)名稱。
+
+## 讀入資料
+
+以readxl套件的read_xlsx()函數讀入xlsx檔。
+
+```{R}
+library(readxl)
+bgData <- read_xlsx('backgroundData.xlsx')
+head(bgData)
+```
+
+## 將類別變項重新分類至新類別 — 範例一
+
+由資料中可以看到，居住縣市一欄為各縣市的名稱。假若我們不需要將縣市分得這麼細，只需要分成北中南東和外島五大區，可用下列程式碼來達成。
+
+首先將五大區域的城市名稱分別先列出來，並產生一個區域的列表(area_list)。
+
+
+```{R message=FALSE}
+library(tidyverse)
+
+set1 <- list('臺北市', '新北市', '基隆市', '新竹市', '桃園市', '新竹縣', '宜蘭縣')
+set2 <- list('臺中市', '苗栗縣', '彰化縣', '南投縣', '雲林縣')
+set3 <- list('高雄市', '臺南市', '嘉義市', '嘉義縣', '屏東縣', '澎湖縣')
+set4 <- list('花蓮縣', '臺東縣')
+set5 <- list('金門縣', '連江縣')
+area_list <- list("北部"=set1, "中部"=set2, "南部"=set3, "東部"=set4, "外島"=set5)
+```
+
+接著，用mutate()函數新增一"區域"的欄位，置於"居住縣市1"欄位之前，並預先填入NA。
+
+然後用for迴圈，對居住縣市的每一筆資料逐一做判斷。若"居住縣市"在列表中屬於某個區域，則在"區域"欄位中填入該區域。
+
+作法為對居住縣市的每一筆資料，都以```sapply(area_list, function(x) bgData$居住縣市[i] %in% x)```的函數來判斷該資料屬於哪一個區域，對此做TRUE/FALSE的判斷。判斷完後，用which()函數傳回TRUE所在的結果。最後再以names()傳回區域名稱。
+
+傳回的區域名稱，直接寫入新的區域欄位即可。
+
+```{R message=FALSE}
+library(tidyverse)
+
+bgData <- mutate(bgData, 區域 = NA, .before="居住縣市")
+
+for (i in 1:nrow(bgData)){
+  bgData$區域[i] <- names(which(sapply(area_list, function(x) bgData$居住縣市[i] %in% x)))
+}
+
+head(bgData)
+```
+
+## 將類別變項重新分類至新類別 — 範例二
+
+我們以將"學生的就讀高中"重新分類為"公立/市立/私立"為例，來看看在此情況下如何將變項重新編碼。
+
+觀察資料型態後，我們發現所有的"就讀高中名稱"中，都有"公立"、"市立"或"私立"幾個類別。因此，要重新分類時，只需要將原本的資料中的這些關鍵字抽取出來即可。作法如下：
+
+同樣先建立一個新的欄位—公私立。
+接著用for迴圈，以gregexpr(pattern ='立', bgData$就讀高中名稱[i])[[1]][1]將每筆資料中有"立"的位置找出來。找出來後，將位置儲存為index_letter。
+接著再將資料中，位置從index_letter-1到index_letter的字元取出，存入"公私立"欄位中相對應的位置即可。
+
+```{R}
+bgData <- mutate(bgData, 公私立 = NA, .before="就讀高中名稱")
+for (i in 1:nrow(bgData)){
+  index_letter <- gregexpr(pattern ='立', bgData$就讀高中名稱[i])[[1]][1]
+  bgData$公私立[i] <- substr(bgData$就讀高中名稱[i], index_letter-1, index_letter)
+}
+head(bgData)
+```
+
+## 參考資料
+
+1. Adam Waring's reply to [Finding Elements of Lists in R](https://stackoverflow.com/questions/17358289/finding-elements-of-lists-in-r) @Stack overflow
+2. mnel's reply to [Find the location of a character in string](https://stackoverflow.com/questions/14249562/find-the-location-of-a-character-in-string) @Stack overflow
+3. [%IN% OPERATOR IN R](https://www.datasciencemadesimple.com/in-operator-in-r/) @DataScience Made Simple

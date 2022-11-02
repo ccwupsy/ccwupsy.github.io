@@ -61,9 +61,8 @@ kbl(head(qData1[, c(2, 7:10)]), align = "c") %>%
 qData1 <- read_xlsx('GoogleFormsData.xlsx')
 
 col_pos <- c(2,6)
-cname <- names(qData1)[col_pos]
 
-for (i in 1:length(cname)) {
+for (i in 1:length(col_pos)) {
   thisncolumn <- col_pos[i]
   qData1 <- cSplit_e(qData1, thisncolumn, type="character", fill=0)
 }
@@ -77,8 +76,7 @@ for (i in 1:length(cname)) {
 ```{R warning=FALSE}
 
 arr_mulchoice <- function(df, col_pos){
-  cname <- names(qData1)[col_pos]
-  for (i in 1:length(cname)) {
+  for (i in 1:length(col_pos)) {
     thisncolumn <- col_pos[i]
     df <- cSplit_e(df, thisncolumn, type="character", fill=0)
   }

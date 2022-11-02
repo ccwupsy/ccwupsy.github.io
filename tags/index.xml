@@ -6,22 +6,58 @@
     <description>Recent content in Tags on Fun with data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ccwupsy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ccwupsy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>google表單</title>
-      <link>https://ccwupsy.github.io/tags/google%E8%A1%A8%E5%96%AE/</link>
-      <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
+      <title>category</title>
+      <link>https://ccwupsy.github.io/tags/category/</link>
+      <pubDate>Wed, 02 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.github.io/tags/google%E8%A1%A8%E5%96%AE/</guid>
+      <guid>https://ccwupsy.github.io/tags/category/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coding</title>
+      <link>https://ccwupsy.github.io/tags/coding/</link>
+      <pubDate>Wed, 02 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ccwupsy.github.io/tags/coding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>order</title>
+      <link>https://ccwupsy.github.io/tags/order/</link>
+      <pubDate>Wed, 02 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ccwupsy.github.io/tags/order/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
       <link>https://ccwupsy.github.io/tags/r/</link>
-      <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 02 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://ccwupsy.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>string</title>
+      <link>https://ccwupsy.github.io/tags/string/</link>
+      <pubDate>Wed, 02 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ccwupsy.github.io/tags/string/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google表單</title>
+      <link>https://ccwupsy.github.io/tags/google%E8%A1%A8%E5%96%AE/</link>
+      <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ccwupsy.github.io/tags/google%E8%A1%A8%E5%96%AE/</guid>
       <description></description>
     </item>
     
