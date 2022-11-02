@@ -2,7 +2,7 @@
 title: "排序資料的整理"
 date: "2022-11-02"
 tags:
-- order
+- rank
 - string
 - R
 categories:
