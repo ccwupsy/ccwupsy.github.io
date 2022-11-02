@@ -6,20 +6,7 @@
     <description>Recent content on Fun with data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Wed, 05 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ccwupsy.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>以部份文字重新命名google表單的欄位名稱</title>
-      <link>https://ccwupsy.github.io/2022/10/%E4%BB%A5%E9%83%A8%E4%BB%BD%E6%96%87%E5%AD%97%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8Dgoogle%E8%A1%A8%E5%96%AE%E7%9A%84%E6%AC%84%E4%BD%8D%E5%90%8D%E7%A8%B1/</link>
-      <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://ccwupsy.github.io/2022/10/%E4%BB%A5%E9%83%A8%E4%BB%BD%E6%96%87%E5%AD%97%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8Dgoogle%E8%A1%A8%E5%96%AE%E7%9A%84%E6%AC%84%E4%BD%8D%E5%90%8D%E7%A8%B1/</guid>
-      <description>
-
-
-&lt;p&gt;Google表單所生成的excel檔，欄位名稱可能會很長。我們可以抽取部份的文字來重新命名欄位名稱。&lt;/p&gt;
-</description>
-    </item>
-    
+    <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ccwupsy.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>將google表單的量尺資料轉為數字</title>
       <link>https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/</link>
