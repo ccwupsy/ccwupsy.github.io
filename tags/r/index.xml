@@ -8,15 +8,15 @@
     <language>zh-tw</language>
     <lastBuildDate>Wed, 02 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ccwupsy.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>將類別變項重新編碼</title>
-      <link>https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/</link>
+      <title>將類別變項重新編碼或分類</title>
+      <link>https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/</link>
       <pubDate>Wed, 02 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/</guid>
+      <guid>https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/</guid>
       <description>
 
 
-&lt;p&gt;在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。&lt;/p&gt;
+&lt;p&gt;在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。&lt;/p&gt;
 </description>
     </item>
     
@@ -29,7 +29,7 @@
       <description>
 
 
-&lt;p&gt;在資料整理時，有時會用到排序的資料。本文說明如何用R來抽取某一個類別在排序資料中的順序，以及如何分析這些資料是否包含某些類別。&lt;/p&gt;
+&lt;p&gt;在資料整理時，有時會用到排序的資料，例如三個欄位依序為受試者的三個偏好選項。本文說明如何用R來抽取某個選項的排序，以及如何分析一欄位是否包含某些選項。&lt;/p&gt;
 </description>
     </item>
     

@@ -7,7 +7,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "將類別變項重新編碼",
+  "headline": "將類別變項重新編碼或分類",
   
   "datePublished": "2022-11-02T00:00:00Z",
   "dateModified": "2022-11-02T00:00:00Z",
@@ -20,7 +20,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/ccwupsy.github.io\/2022\/11\/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC\/" 
+    "@id": "https:\/\/ccwupsy.github.io\/2022\/11\/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -32,7 +32,7 @@
     }
     
   },
-  "description": "\r在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。\n",
+  "description": "\r在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。\n",
   "keywords": []
 }
 
@@ -46,30 +46,30 @@
 <meta name="description" content="
 
 
-在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
+在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
 ">
 
 
 <meta property="og:description" content="
 
 
-在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
+在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="將類別變項重新編碼">
-<meta name="twitter:title" content="將類別變項重新編碼">
-<meta property="og:url" content="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/">
-<meta property="twitter:url" content="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/">
+<meta property="og:title" content="將類別變項重新編碼或分類">
+<meta name="twitter:title" content="將類別變項重新編碼或分類">
+<meta property="og:url" content="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/">
+<meta property="twitter:url" content="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/">
 <meta property="og:site_name" content="Fun with data">
 <meta property="og:description" content="
 
 
-在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
+在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
 ">
 <meta name="twitter:description" content="
 
 
-在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
+在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
 ">
 <meta property="og:locale" content="zh-tw">
 
@@ -112,14 +112,14 @@
 
 
 
-    <title>將類別變項重新編碼</title>
+    <title>將類別變項重新編碼或分類</title>
 
     <link rel="icon" href="https://ccwupsy.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/">
+    <link rel="canonical" href="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -302,7 +302,7 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      將類別變項重新編碼
+      將類別變項重新編碼或分類
     </h1>
   
   
@@ -329,7 +329,7 @@ if (!doNotTrack) {
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>在分析資料時，有時會想要將原來的類別重新做分類，例如將多個類別重新歸類為新的類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。</p>
+              <p>在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。</p>
 <div id="資料範例" class="section level2">
 <h2>資料範例</h2>
 <p>請<a href="https://docs.google.com/spreadsheets/d/10syL_q-Y7UqwrAWSlBUV7zwClpLMtYNj/edit?usp=sharing&amp;ouid=102534642616283273245&amp;rtpof=true&amp;sd=true">點選此處</a>下載本文的資料範例。</p>
@@ -351,8 +351,8 @@ head(bgData)</code></pre>
 ## 5     5 女    新北市立林口高中     桃園市   心理學系     &lt;NA&gt;         &lt;NA&gt;    
 ## 6     6 女    國立基隆女中         新北市   社會工作學系 管理學系     心理學系</code></pre>
 </div>
-<div id="將類別變項重新分類至新類別-範例一" class="section level2">
-<h2>將類別變項重新分類至新類別 — 範例一</h2>
+<div id="範例一將縣市資料分為五大區域" class="section level2">
+<h2>範例一：將縣市資料分為五大區域</h2>
 <p>由資料中可以看到，居住縣市一欄為各縣市的名稱。假若我們不需要將縣市分得這麼細，只需要分成北中南東和外島五大區，可用下列程式碼來達成。</p>
 <p>首先將五大區域的城市名稱分別先列出來，並產生一個區域的列表(area_list)。</p>
 <pre class="r"><code>library(tidyverse)
@@ -364,14 +364,12 @@ set4 &lt;- list(&#39;花蓮縣&#39;, &#39;臺東縣&#39;)
 set5 &lt;- list(&#39;金門縣&#39;, &#39;連江縣&#39;)
 area_list &lt;- list(&quot;北部&quot;=set1, &quot;中部&quot;=set2, &quot;南部&quot;=set3, &quot;東部&quot;=set4, &quot;外島&quot;=set5)</code></pre>
 <p>接著，用mutate()函數新增一”區域”的欄位，置於”居住縣市1”欄位之前，並預先填入NA。</p>
-<p>然後用for迴圈，對居住縣市的每一筆資料逐一做判斷。若”居住縣市”在列表中屬於某個區域，則在”區域”欄位中填入該區域。</p>
-<p>作法為對居住縣市的每一筆資料，都以<code>sapply(area_list, function(x) bgData$居住縣市[i] %in% x)</code>的函數來判斷該資料屬於哪一個區域，對此做TRUE/FALSE的判斷。判斷完後，用which()函數傳回TRUE所在的結果。最後再以names()傳回區域名稱。</p>
-<p>傳回的區域名稱，直接寫入新的區域欄位即可。</p>
 <pre class="r"><code>library(tidyverse)
-
-bgData &lt;- mutate(bgData, 區域 = NA, .before=&quot;居住縣市&quot;)
-
-for (i in 1:nrow(bgData)){
+bgData &lt;- mutate(bgData, 區域 = NA, .before=&quot;居住縣市&quot;)</code></pre>
+<p>然後用for迴圈，對居住縣市的每一筆資料逐一做判斷。若”居住縣市”在列表中屬於某個區域，則在”區域”欄位中填入該區域。</p>
+<p>作法為對居住縣市的每一筆資料，都以<code>sapply(area_list, function(x) bgData$居住縣市[i] %in% x)</code>的函數來判斷該資料屬於哪一個區域，對此做TRUE/FALSE的判斷。判斷完後，用which()函數傳回TRUE值所在的結果。最後再以names()傳回區域名稱。</p>
+<p>傳回的區域名稱，直接寫入新的區域欄位即可。</p>
+<pre class="r"><code>for (i in 1:nrow(bgData)){
   bgData$區域[i] &lt;- names(which(sapply(area_list, function(x) bgData$居住縣市[i] %in% x)))
 }
 
@@ -386,13 +384,13 @@ head(bgData)</code></pre>
 ## 5     5 女    新北市立林口高中     北部  桃園市   心理學系     &lt;NA&gt;        &lt;NA&gt; 
 ## 6     6 女    國立基隆女中         北部  新北市   社會工作學系 管理學系    心理…</code></pre>
 </div>
-<div id="將類別變項重新分類至新類別-範例二" class="section level2">
-<h2>將類別變項重新分類至新類別 — 範例二</h2>
-<p>我們以將”學生的就讀高中”重新分類為”公立/市立/私立”為例，來看看在此情況下如何將變項重新編碼。</p>
-<p>觀察資料型態後，我們發現所有的”就讀高中名稱”中，都有”公立”、“市立”或”私立”幾個類別。因此，要重新分類時，只需要將原本的資料中的這些關鍵字抽取出來即可。作法如下：</p>
-<p>同樣先建立一個新的欄位—公私立。
-接著用for迴圈，以gregexpr(pattern =‘立’, bgData$就讀高中名稱[i])[[1]][1]將每筆資料中有”立”的位置找出來。找出來後，將位置儲存為index_letter。
-接著再將資料中，位置從index_letter-1到index_letter的字元取出，存入”公私立”欄位中相對應的位置即可。</p>
+<div id="範例二將學校資料分為公私立等類別" class="section level2">
+<h2>範例二：將學校資料分為公私立等類別</h2>
+<p>第二個範例為：如何將”學生的就讀高中”重新分類為”公立/市立/私立”。</p>
+<p>觀察資料型態後，我們發現所有的”就讀高中名稱”中，都有”公立”、“市立”或”私立”幾個類別的文字。因此，要重新分類時，只需要將原本的資料中的這些關鍵字抽取出來即可。作法如下：</p>
+<p>同樣先建立一個新的欄位—“公私立”。</p>
+<p>接著用for迴圈，以gregexpr(pattern =‘立’, bgData$就讀高中名稱[i])[[1]][1]將每筆資料中有”立”的位置找出來。找出來後，將位置儲存為index_letter。</p>
+<p>接著再將資料中，位置從index_letter-1到index_letter的字元取出，存入”公私立”欄位中相對應的位置即可。</p>
 <pre class="r"><code>bgData &lt;- mutate(bgData, 公私立 = NA, .before=&quot;就讀高中名稱&quot;)
 for (i in 1:nrow(bgData)){
   index_letter &lt;- gregexpr(pattern =&#39;立&#39;, bgData$就讀高中名稱[i])[[1]][1]
@@ -474,19 +472,19 @@ head(bgData)</code></pre>
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -528,7 +526,7 @@ head(bgData)</code></pre>
           repo: 'ccwupsy.github.io',
           owner: 'ccwupsy',
           admin: ['ccwupsy'],
-          id: '67c165419999b5b3977d1209a4f6b4d4',
+          id: 'edab7345d4fe37cff0ee07897f2bebf5',
           ...{"distractionfreemode":true,"enablehotkey":true,"language":"zh-TW","pagerdirection":"first","perpage":10}
         }).render('gitalk')
       })()
@@ -579,19 +577,19 @@ head(bgData)</code></pre>
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -622,19 +620,19 @@ head(bgData)</code></pre>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccwupsy.github.io%2F2022%2F11%2F%25E5%25B0%2587%25E9%25A1%259E%25E5%2588%25A5%25E8%25AE%258A%25E9%25A0%2585%25E9%2587%258D%25E6%2596%25B0%25E7%25B7%25A8%25E7%25A2%25BC%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccwupsy.github.io%2F2022%2F11%2F%25E5%25B0%2587%25E9%25A1%259E%25E5%2588%25A5%25E8%25AE%258A%25E9%25A0%2585%25E9%2587%258D%25E6%2596%25B0%25E7%25B7%25A8%25E7%25A2%25BC%25E6%2588%2596%25E5%2588%2586%25E9%25A1%259E%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fccwupsy.github.io%2F2022%2F11%2F%25E5%25B0%2587%25E9%25A1%259E%25E5%2588%25A5%25E8%25AE%258A%25E9%25A0%2585%25E9%2587%258D%25E6%2596%25B0%25E7%25B7%25A8%25E7%25A2%25BC%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fccwupsy.github.io%2F2022%2F11%2F%25E5%25B0%2587%25E9%25A1%259E%25E5%2588%25A5%25E8%25AE%258A%25E9%25A0%2585%25E9%2587%258D%25E6%2596%25B0%25E7%25B7%25A8%25E7%25A2%25BC%25E6%2588%2596%25E5%2588%2586%25E9%25A1%259E%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fccwupsy.github.io%2F2022%2F11%2F%25E5%25B0%2587%25E9%25A1%259E%25E5%2588%25A5%25E8%25AE%258A%25E9%25A0%2585%25E9%2587%258D%25E6%2596%25B0%25E7%25B7%25A8%25E7%25A2%25BC%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fccwupsy.github.io%2F2022%2F11%2F%25E5%25B0%2587%25E9%25A1%259E%25E5%2588%25A5%25E8%25AE%258A%25E9%25A0%2585%25E9%2587%258D%25E6%2596%25B0%25E7%25B7%25A8%25E7%25A2%25BC%25E6%2588%2596%25E5%2588%2586%25E9%25A1%259E%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>

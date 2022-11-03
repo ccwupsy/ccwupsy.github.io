@@ -380,7 +380,7 @@ if (!doNotTrack) {
 <p>在下列程式碼中，<code>".*\\[([^*]+)].*"</code>為regular expression，其中<code>.*</code>指的是任何文字，<code>\\[</code>為文字[，<code>([^*]+)</code>指的是一個group，此group中是任何字元(<code>[^.*]+</code>)都可以，接著是文字<code>]</code>和任何文字<code>.*</code>。</p>
 <pre class="r"><code>sub(&quot;.*\\[([^.*]+)].*&quot;, &quot;\\1&quot;, str1)</code></pre>
 <pre><code>## [1] &quot;(1) 最符合興趣&quot;</code></pre>
-<p>若要將str1改為「朋友、同學、學長姐」，只要將原字串以抽取出的文字取代即可。</p>
+<p>若要將str1改為「朋友、同學、學長姐」，只要將原字串以抽取出的文字(\1)取代即可。</p>
 <pre class="r"><code>str1 &lt;- sub(&quot;.*\\[([^.*]+)].*&quot;, &quot;\\1&quot;, str1)
 str1</code></pre>
 <pre><code>## [1] &quot;(1) 最符合興趣&quot;</code></pre>
