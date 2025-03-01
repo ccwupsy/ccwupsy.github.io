@@ -6,75 +6,49 @@
     <description>Recent content in Posts on Fun with data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Wed, 02 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ccwupsy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ccwupsy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>將SQLite資料匯入power BI</title>
+      <link>https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/</guid>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;不同資料庫之間的讀取與格式轉換，是資料分析的第一步。若拿到的是SQLite資料，想匯入power BI，該如何做呢？&lt;/p&gt;&#xD;&#xA;</description>
+    </item>
     <item>
       <title>將類別變項重新編碼或分類</title>
       <link>https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/</link>
       <pubDate>Wed, 02 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/</guid>
-      <description>
-
-
-&lt;p&gt;在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。&lt;/p&gt;
-</description>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>排序資料的整理</title>
       <link>https://ccwupsy.github.io/2022/11/%E6%8E%92%E5%BA%8F%E8%B3%87%E6%96%99%E7%9A%84%E6%95%B4%E7%90%86/</link>
       <pubDate>Wed, 02 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ccwupsy.github.io/2022/11/%E6%8E%92%E5%BA%8F%E8%B3%87%E6%96%99%E7%9A%84%E6%95%B4%E7%90%86/</guid>
-      <description>
-
-
-&lt;p&gt;在資料整理時，有時會用到排序的資料，例如三個欄位依序為受試者的三個偏好選項。本文說明如何用R來抽取某個選項的排序，以及如何分析一欄位是否包含某些選項。&lt;/p&gt;
-</description>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;在資料整理時，有時會用到排序的資料，例如三個欄位依序為受試者的三個偏好選項。本文說明如何用R來抽取某個選項的排序，以及如何分析一欄位是否包含某些選項。&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>以部份文字重新命名google表單的欄位名稱</title>
       <link>https://ccwupsy.github.io/2022/10/%E4%BB%A5%E9%83%A8%E4%BB%BD%E6%96%87%E5%AD%97%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8Dgoogle%E8%A1%A8%E5%96%AE%E7%9A%84%E6%AC%84%E4%BD%8D%E5%90%8D%E7%A8%B1/</link>
       <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ccwupsy.github.io/2022/10/%E4%BB%A5%E9%83%A8%E4%BB%BD%E6%96%87%E5%AD%97%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8Dgoogle%E8%A1%A8%E5%96%AE%E7%9A%84%E6%AC%84%E4%BD%8D%E5%90%8D%E7%A8%B1/</guid>
-      <description>
-
-
-&lt;p&gt;Google表單所生成的excel檔，欄位名稱可能會很長。我們可以抽取部份的文字來重新命名欄位名稱。&lt;/p&gt;
-</description>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Google表單所生成的excel檔，欄位名稱可能會很長。我們可以抽取部份的文字來重新命名欄位名稱。&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>將google表單的量尺資料轉為數字</title>
       <link>https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/</link>
       <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ccwupsy.github.io/2022/10/%E5%B0%87google%E8%A1%A8%E5%96%AE%E7%9A%84%E9%87%8F%E5%B0%BA%E8%B3%87%E6%96%99%E8%BD%89%E7%82%BA%E6%95%B8%E5%AD%97/</guid>
-      <description>
-&lt;script src=&#34;https://ccwupsy.github.io/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;https://ccwupsy.github.io/rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
-
-
-&lt;p&gt;Google表單的量尺刻度有時會有文字說明，在後續分析時需要先轉為數字。本文說明如何以R來做轉換，以利後續的資料處理。&lt;/p&gt;
-</description>
+      <description>&#xD;&#xA;&lt;script src=&#34;https://ccwupsy.github.io/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;link href=&#34;https://ccwupsy.github.io/rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Google表單的量尺刻度有時會有文字說明，在後續分析時需要先轉為數字。本文說明如何以R來做轉換，以利後續的資料處理。&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>以splitstackshape套件整理Google表單的複選題資料</title>
       <link>https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/</link>
       <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ccwupsy.github.io/2022/10/%E4%BB%A5splitstackshape%E5%A5%97%E4%BB%B6%E6%95%B4%E7%90%86google%E8%A1%A8%E5%96%AE%E7%9A%84%E8%A4%87%E9%81%B8%E9%A1%8C%E8%B3%87%E6%96%99/</guid>
-      <description>
-&lt;script src=&#34;https://ccwupsy.github.io/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;https://ccwupsy.github.io/rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
-
-
-&lt;p&gt;Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。&lt;/p&gt;
-</description>
+      <description>&#xD;&#xA;&lt;script src=&#34;https://ccwupsy.github.io/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;link href=&#34;https://ccwupsy.github.io/rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Google表單在題目為複選題時，會將填答者的回應全記錄在同一個欄位，不利後續分析。R的splitstackshape套件提供了十分便捷的函數可以很快地處理複選題的回應。本文說明如何用splitstackshape套件來處理Google表單的複選題資料，以利做後續分析。&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
   </channel>
 </rss>

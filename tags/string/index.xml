@@ -6,32 +6,21 @@
     <description>Recent content in string on Fun with data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Wed, 02 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ccwupsy.github.io/tags/string/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ccwupsy.github.io/tags/string/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>排序資料的整理</title>
       <link>https://ccwupsy.github.io/2022/11/%E6%8E%92%E5%BA%8F%E8%B3%87%E6%96%99%E7%9A%84%E6%95%B4%E7%90%86/</link>
       <pubDate>Wed, 02 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ccwupsy.github.io/2022/11/%E6%8E%92%E5%BA%8F%E8%B3%87%E6%96%99%E7%9A%84%E6%95%B4%E7%90%86/</guid>
-      <description>
-
-
-&lt;p&gt;在資料整理時，有時會用到排序的資料，例如三個欄位依序為受試者的三個偏好選項。本文說明如何用R來抽取某個選項的排序，以及如何分析一欄位是否包含某些選項。&lt;/p&gt;
-</description>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;在資料整理時，有時會用到排序的資料，例如三個欄位依序為受試者的三個偏好選項。本文說明如何用R來抽取某個選項的排序，以及如何分析一欄位是否包含某些選項。&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
     <item>
       <title>以部份文字重新命名google表單的欄位名稱</title>
       <link>https://ccwupsy.github.io/2022/10/%E4%BB%A5%E9%83%A8%E4%BB%BD%E6%96%87%E5%AD%97%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8Dgoogle%E8%A1%A8%E5%96%AE%E7%9A%84%E6%AC%84%E4%BD%8D%E5%90%8D%E7%A8%B1/</link>
       <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ccwupsy.github.io/2022/10/%E4%BB%A5%E9%83%A8%E4%BB%BD%E6%96%87%E5%AD%97%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8Dgoogle%E8%A1%A8%E5%96%AE%E7%9A%84%E6%AC%84%E4%BD%8D%E5%90%8D%E7%A8%B1/</guid>
-      <description>
-
-
-&lt;p&gt;Google表單所生成的excel檔，欄位名稱可能會很長。我們可以抽取部份的文字來重新命名欄位名稱。&lt;/p&gt;
-</description>
+      <description>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;p&gt;Google表單所生成的excel檔，欄位名稱可能會很長。我們可以抽取部份的文字來重新命名欄位名稱。&lt;/p&gt;&#xD;&#xA;</description>
     </item>
-    
   </channel>
 </rss>
