@@ -7,10 +7,10 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "將類別變項重新編碼或分類",
+  "headline": "將SQLite的資料匯入power BI",
   
-  "datePublished": "2022-11-02T00:00:00Z",
-  "dateModified": "2022-11-02T00:00:00Z",
+  "datePublished": "2025-03-01T00:00:00Z",
+  "dateModified": "2025-03-01T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "Chia-Ching Wu",
@@ -20,7 +20,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/ccwupsy.github.io\/2022\/11\/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E\/" 
+    "@id": "https:\/\/ccwupsy.github.io\/2025\/03\/%E5%B0%87sqlite%E7%9A%84%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -32,7 +32,7 @@
     }
     
   },
-  "description": "\r在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。\n",
+  "description": "\r不同資料庫之間的讀取與格式轉換，是資料分析的第一步。若拿到的是SQLite資料，想匯入power BI，該如何做呢？\n",
   "keywords": []
 }
 
@@ -46,38 +46,38 @@
 <meta name="description" content="
 
 
-在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
+不同資料庫之間的讀取與格式轉換，是資料分析的第一步。若拿到的是SQLite資料，想匯入power BI，該如何做呢？
 ">
 
 
 <meta property="og:description" content="
 
 
-在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
+不同資料庫之間的讀取與格式轉換，是資料分析的第一步。若拿到的是SQLite資料，想匯入power BI，該如何做呢？
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="將類別變項重新編碼或分類">
-<meta name="twitter:title" content="將類別變項重新編碼或分類">
-<meta property="og:url" content="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/">
-<meta property="twitter:url" content="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/">
+<meta property="og:title" content="將SQLite的資料匯入power BI">
+<meta name="twitter:title" content="將SQLite的資料匯入power BI">
+<meta property="og:url" content="https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E7%9A%84%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/">
+<meta property="twitter:url" content="https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E7%9A%84%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/">
 <meta property="og:site_name" content="Fun with data">
 <meta property="og:description" content="
 
 
-在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
+不同資料庫之間的讀取與格式轉換，是資料分析的第一步。若拿到的是SQLite資料，想匯入power BI，該如何做呢？
 ">
 <meta name="twitter:description" content="
 
 
-在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。
+不同資料庫之間的讀取與格式轉換，是資料分析的第一步。若拿到的是SQLite資料，想匯入power BI，該如何做呢？
 ">
 <meta property="og:locale" content="zh-tw">
 
   
-    <meta property="article:published_time" content="2022-11-02T00:00:00">
+    <meta property="article:published_time" content="2025-03-01T00:00:00">
   
   
-    <meta property="article:modified_time" content="2022-11-02T00:00:00">
+    <meta property="article:modified_time" content="2025-03-01T00:00:00">
   
   
   
@@ -87,11 +87,9 @@
   
   
     
-      <meta property="article:tag" content="coding">
+      <meta property="article:tag" content="power BI">
     
-      <meta property="article:tag" content="category">
-    
-      <meta property="article:tag" content="R">
+      <meta property="article:tag" content="SQLite">
     
   
 
@@ -112,14 +110,14 @@
 
 
 
-    <title>將類別變項重新編碼或分類</title>
+    <title>將SQLite的資料匯入power BI</title>
 
     <link rel="icon" href="https://ccwupsy.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/">
+    <link rel="canonical" href="https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E7%9A%84%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -302,15 +300,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      將類別變項重新編碼或分類
+      將SQLite的資料匯入power BI
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2022-11-02T00:00:00Z">
+      <time datetime="2025-03-01T00:00:00Z">
         
-  十一月 2, 2022
+  三月 1, 2025
 
       </time>
     
@@ -329,90 +327,33 @@ if (!doNotTrack) {
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>在分析資料時，有時會想要將原來的類別重新做分類，例如將原本的多個較小的類別歸類為新的大類別。本文說明如何用R來將原來的類別變項重新編碼成新的類別變項。</p>
-<div id="資料範例" class="section level2">
-<h2>資料範例</h2>
-<p>請<a href="https://docs.google.com/spreadsheets/d/10syL_q-Y7UqwrAWSlBUV7zwClpLMtYNj/edit?usp=sharing&amp;ouid=102534642616283273245&amp;rtpof=true&amp;sd=true">點選此處</a>下載本文的資料範例。</p>
-<p>資料為一虛擬的問卷資料，為20位學生的背景資料，包括其編號、性別、就讀高中名稱、居住縣市、以及三個志願科系(志願1~志願3)名稱。</p>
+              <p>微軟的power BI是個資料視覺化的免費工具。本文簡介如何用power BI來讀入SQLite的資料。</p>
+<div id="所需軟體" class="section level2">
+<h2>所需軟體</h2>
+<p>除了power BI之外，尚需先安裝SQLite ODBC driver。</p>
 </div>
-<div id="讀入資料" class="section level2">
-<h2>讀入資料</h2>
-<p>以readxl套件的read_xlsx()函數讀入xlsx檔。</p>
-<pre class="r"><code>library(readxl)
-bgData &lt;- read_xlsx(&#39;backgroundData.xlsx&#39;)
-head(bgData)</code></pre>
-<pre><code>## # A tibble: 6 × 7
-##    編號 性別  就讀高中名稱         居住縣市 志願1        志願2        志願3   
-##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;   
-## 1     1 女    桃園市立大園國際高中 新北市   心理學系     社會工作學系 &lt;NA&gt;    
-## 2     2 男    私立育達高中         臺北市   心理學系     社會工作學系 管理學系
-## 3     3 女    私立崇光中學         新北市   心理學系     &lt;NA&gt;         &lt;NA&gt;    
-## 4     4 女    私立崇光中學         新北市   心理學系     觀光學系     &lt;NA&gt;    
-## 5     5 女    新北市立林口高中     桃園市   心理學系     &lt;NA&gt;         &lt;NA&gt;    
-## 6     6 女    國立基隆女中         新北市   社會工作學系 管理學系     心理學系</code></pre>
-</div>
-<div id="範例一將縣市資料分為五大區域" class="section level2">
-<h2>範例一：將縣市資料分為五大區域</h2>
-<p>由資料中可以看到，居住縣市一欄為各縣市的名稱。假若我們不需要將縣市分得這麼細，只需要分成北中南東和外島五大區，可用下列程式碼來達成。</p>
-<p>首先將五大區域的城市名稱分別先列出來，並產生一個區域的列表(area_list)。</p>
-<pre class="r"><code>library(tidyverse)
-
-set1 &lt;- list(&#39;臺北市&#39;, &#39;新北市&#39;, &#39;基隆市&#39;, &#39;新竹市&#39;, &#39;桃園市&#39;, &#39;新竹縣&#39;, &#39;宜蘭縣&#39;)
-set2 &lt;- list(&#39;臺中市&#39;, &#39;苗栗縣&#39;, &#39;彰化縣&#39;, &#39;南投縣&#39;, &#39;雲林縣&#39;)
-set3 &lt;- list(&#39;高雄市&#39;, &#39;臺南市&#39;, &#39;嘉義市&#39;, &#39;嘉義縣&#39;, &#39;屏東縣&#39;, &#39;澎湖縣&#39;)
-set4 &lt;- list(&#39;花蓮縣&#39;, &#39;臺東縣&#39;)
-set5 &lt;- list(&#39;金門縣&#39;, &#39;連江縣&#39;)
-area_list &lt;- list(&quot;北部&quot;=set1, &quot;中部&quot;=set2, &quot;南部&quot;=set3, &quot;東部&quot;=set4, &quot;外島&quot;=set5)</code></pre>
-<p>接著，用mutate()函數新增一”區域”的欄位，置於”居住縣市1”欄位之前，並預先填入NA。</p>
-<pre class="r"><code>library(tidyverse)
-bgData &lt;- mutate(bgData, 區域 = NA, .before=&quot;居住縣市&quot;)</code></pre>
-<p>然後用for迴圈，對居住縣市的每一筆資料逐一做判斷。若”居住縣市”在列表中屬於某個區域，則在”區域”欄位中填入該區域。</p>
-<p>作法為對居住縣市的每一筆資料，都以<code>sapply(area_list, function(x) bgData$居住縣市[i] %in% x)</code>的函數來判斷該資料屬於哪一個區域，對此做TRUE/FALSE的判斷。判斷完後，用which()函數傳回TRUE值所在的結果。最後再以names()傳回區域名稱。</p>
-<p>傳回的區域名稱，直接寫入新的區域欄位即可。</p>
-<pre class="r"><code>for (i in 1:nrow(bgData)){
-  bgData$區域[i] &lt;- names(which(sapply(area_list, function(x) bgData$居住縣市[i] %in% x)))
-}
-
-head(bgData)</code></pre>
-<pre><code>## # A tibble: 6 × 8
-##    編號 性別  就讀高中名稱         區域  居住縣市 志願1        志願2       志願3
-##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;
-## 1     1 女    桃園市立大園國際高中 北部  新北市   心理學系     社會工作學… &lt;NA&gt; 
-## 2     2 男    私立育達高中         北部  臺北市   心理學系     社會工作學… 管理…
-## 3     3 女    私立崇光中學         北部  新北市   心理學系     &lt;NA&gt;        &lt;NA&gt; 
-## 4     4 女    私立崇光中學         北部  新北市   心理學系     觀光學系    &lt;NA&gt; 
-## 5     5 女    新北市立林口高中     北部  桃園市   心理學系     &lt;NA&gt;        &lt;NA&gt; 
-## 6     6 女    國立基隆女中         北部  新北市   社會工作學系 管理學系    心理…</code></pre>
-</div>
-<div id="範例二將學校資料分為公私立等類別" class="section level2">
-<h2>範例二：將學校資料分為公私立等類別</h2>
-<p>第二個範例為：如何將”學生的就讀高中”重新分類為”公立/市立/私立”。</p>
-<p>觀察資料型態後，我們發現所有的”就讀高中名稱”中，都有”公立”、“市立”或”私立”幾個類別的文字。因此，要重新分類時，只需要將原本的資料中的這些關鍵字抽取出來即可。作法如下：</p>
-<p>同樣先建立一個新的欄位—“公私立”。</p>
-<p>接著用for迴圈，以gregexpr(pattern =‘立’, bgData$就讀高中名稱[i])[[1]][1]將每筆資料中有”立”的位置找出來。找出來後，將位置儲存為index_letter。</p>
-<p>接著再將資料中，位置從index_letter-1到index_letter的字元取出，存入”公私立”欄位中相對應的位置即可。</p>
-<pre class="r"><code>bgData &lt;- mutate(bgData, 公私立 = NA, .before=&quot;就讀高中名稱&quot;)
-for (i in 1:nrow(bgData)){
-  index_letter &lt;- gregexpr(pattern =&#39;立&#39;, bgData$就讀高中名稱[i])[[1]][1]
-  bgData$公私立[i] &lt;- substr(bgData$就讀高中名稱[i], index_letter-1, index_letter)
-}
-head(bgData)</code></pre>
-<pre><code>## # A tibble: 6 × 9
-##    編號 性別  公私立 就讀高中名稱         區域  居住縣市 志願1       志願2 志願3
-##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;                &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;
-## 1     1 女    市立   桃園市立大園國際高中 北部  新北市   心理學系    社會… &lt;NA&gt; 
-## 2     2 男    私立   私立育達高中         北部  臺北市   心理學系    社會… 管理…
-## 3     3 女    私立   私立崇光中學         北部  新北市   心理學系    &lt;NA&gt;  &lt;NA&gt; 
-## 4     4 女    私立   私立崇光中學         北部  新北市   心理學系    觀光… &lt;NA&gt; 
-## 5     5 女    市立   新北市立林口高中     北部  桃園市   心理學系    &lt;NA&gt;  &lt;NA&gt; 
-## 6     6 女    國立   國立基隆女中         北部  新北市   社會工作學… 管理… 心理…</code></pre>
+<div id="匯入資料" class="section level2">
+<h2>匯入資料</h2>
+<ol style="list-style-type: decimal">
+<li><p>在power BI下，依據點選「檔案」 → 「取得資料」 → 「取得資料以開始使用」 → 「其他」 → 「ODBC」 → 「連接」，進入設定視窗。</p></li>
+<li><p>在設定視窗下，資料來源名稱(DSN)可選擇「SQLite3 DataSource」。</p></li>
+<li><p>點開設定視窗內的「進階選項」，在連接字串(非認證屬性)的欄位中，填入SQLite database的路徑，如「database = ‘D:.db’」，按下「確定」，即可連接SQLite database。</p></li>
+</ol>
+<p>另一個方式是先建立ODBC DSN，在power BI即可直接選取資料庫。作法如下：</p>
+<ol style="list-style-type: decimal">
+<li><p>打開ODBC Data Sources。</p></li>
+<li><p>在「ODBC Data Source Administrator」的「User DSN」中，按「Add」，進入「Create New Data Source」視窗。</p></li>
+<li><p>在「Create New Data Source」視窗中選擇「SQLite3 ODBC Driver」，按「Finish」進入「SQLite3 ODBC DSN Configuration」。</p></li>
+<li><p>依據填入「Data Source Name」 (自訂名稱)、「Database Name」 (按「Browse」選取SQLite database檔案)，按「OK」完成設定，即會看到此SQLite database出現在「ODBC Data Source Administrator」視窗中。</p></li>
+<li><p>從power BI匯入SQLite database時，直接從「資料來源名稱(DSN)」選擇已設定好的「Data Source Name」即可。</p></li>
+</ol>
 </div>
 <div id="參考資料" class="section level2">
 <h2>參考資料</h2>
 <ol style="list-style-type: decimal">
-<li>Adam Waring’s reply to <a href="https://stackoverflow.com/questions/17358289/finding-elements-of-lists-in-r">Finding Elements of Lists in R</a> <span class="citation">@Stack</span> overflow</li>
-<li>mnel’s reply to <a href="https://stackoverflow.com/questions/14249562/find-the-location-of-a-character-in-string">Find the location of a character in string</a> <span class="citation">@Stack</span> overflow</li>
-<li><a href="https://www.datasciencemadesimple.com/in-operator-in-r/">%IN% OPERATOR IN R</a> <span class="citation">@DataScience</span> Made Simple</li>
+<li><a href="https://medium.com/@ss1111119/power-bi%E5%B0%8E%E5%85%A5sqlite%E8%B3%87%E6%96%99-d003c8fbaf09">Power BI導入SQLite資料</a></li>
+<li><a href="https://hackmd.io/@hkh/B1UAjYuhD">使用Power BI連線SQLITE</a></li>
+<li><a href="https://biinsight.com/visualise-sqlite-data-in-power-bi/">Visualise SQLite Data in Power BI</a></li>
 </ol>
 </div>
 
@@ -429,11 +370,9 @@ head(bgData)</code></pre>
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">標籤</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/coding/">coding</a>
+  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/power-bi/">power BI</a>
 
-  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/category/">category</a>
-
-  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/r/">R</a>
+  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/sqlite/">SQLite</a>
 
                   </div>
                 
@@ -446,7 +385,7 @@ head(bgData)</code></pre>
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E7%9A%84%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" data-tooltip="將SQLite的資料匯入power BI" aria-label="下一篇: 將SQLite的資料匯入power BI">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2025/03/%E5%B0%87power-bi%E7%9A%84%E8%B3%87%E6%96%99%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94/" data-tooltip="將power BI的資料表匯出為csv檔" aria-label="下一篇: 將power BI的資料表匯出為csv檔">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -454,7 +393,7 @@ head(bgData)</code></pre>
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/11/%E6%8E%92%E5%BA%8F%E8%B3%87%E6%96%99%E7%9A%84%E6%95%B4%E7%90%86/" data-tooltip="排序資料的整理" aria-label="上一篇: 排序資料的整理">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" data-tooltip="將類別變項重新編碼或分類" aria-label="上一篇: 將類別變項重新編碼或分類">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -472,19 +411,19 @@ head(bgData)</code></pre>
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E7%9A%84%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E7%9A%84%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E7%9A%84%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -526,7 +465,7 @@ head(bgData)</code></pre>
           repo: 'ccwupsy.github.io',
           owner: 'ccwupsy',
           admin: ['ccwupsy'],
-          id: 'edab7345d4fe37cff0ee07897f2bebf5',
+          id: 'a5fe820a820176d9fb98fc2024264efa',
           ...{"distractionfreemode":true,"enablehotkey":true,"language":"zh-TW","pagerdirection":"first","perpage":10}
         }).render('gitalk')
       })()
@@ -551,7 +490,7 @@ head(bgData)</code></pre>
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E7%9A%84%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" data-tooltip="將SQLite的資料匯入power BI" aria-label="下一篇: 將SQLite的資料匯入power BI">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2025/03/%E5%B0%87power-bi%E7%9A%84%E8%B3%87%E6%96%99%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94/" data-tooltip="將power BI的資料表匯出為csv檔" aria-label="下一篇: 將power BI的資料表匯出為csv檔">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -559,7 +498,7 @@ head(bgData)</code></pre>
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/11/%E6%8E%92%E5%BA%8F%E8%B3%87%E6%96%99%E7%9A%84%E6%95%B4%E7%90%86/" data-tooltip="排序資料的整理" aria-label="上一篇: 排序資料的整理">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" data-tooltip="將類別變項重新編碼或分類" aria-label="上一篇: 將類別變項重新編碼或分類">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -577,19 +516,19 @@ head(bgData)</code></pre>
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E7%9A%84%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E7%9A%84%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E7%9A%84%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -620,19 +559,19 @@ head(bgData)</code></pre>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccwupsy.github.io%2F2022%2F11%2F%25E5%25B0%2587%25E9%25A1%259E%25E5%2588%25A5%25E8%25AE%258A%25E9%25A0%2585%25E9%2587%258D%25E6%2596%25B0%25E7%25B7%25A8%25E7%25A2%25BC%25E6%2588%2596%25E5%2588%2586%25E9%25A1%259E%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccwupsy.github.io%2F2025%2F03%2F%25E5%25B0%2587sqlite%25E7%259A%2584%25E8%25B3%2587%25E6%2596%2599%25E5%258C%25AF%25E5%2585%25A5power-bi%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fccwupsy.github.io%2F2022%2F11%2F%25E5%25B0%2587%25E9%25A1%259E%25E5%2588%25A5%25E8%25AE%258A%25E9%25A0%2585%25E9%2587%258D%25E6%2596%25B0%25E7%25B7%25A8%25E7%25A2%25BC%25E6%2588%2596%25E5%2588%2586%25E9%25A1%259E%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fccwupsy.github.io%2F2025%2F03%2F%25E5%25B0%2587sqlite%25E7%259A%2584%25E8%25B3%2587%25E6%2596%2599%25E5%258C%25AF%25E5%2585%25A5power-bi%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fccwupsy.github.io%2F2022%2F11%2F%25E5%25B0%2587%25E9%25A1%259E%25E5%2588%25A5%25E8%25AE%258A%25E9%25A0%2585%25E9%2587%258D%25E6%2596%25B0%25E7%25B7%25A8%25E7%25A2%25BC%25E6%2588%2596%25E5%2588%2586%25E9%25A1%259E%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fccwupsy.github.io%2F2025%2F03%2F%25E5%25B0%2587sqlite%25E7%259A%2584%25E8%25B3%2587%25E6%2596%2599%25E5%258C%25AF%25E5%2585%25A5power-bi%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>

@@ -1,0 +1,47 @@
+---
+title: "將SQLite的資料匯入power BI"
+date: "2025-03-01"
+tags:
+- power BI
+- SQLite
+categories:
+- 資料整理
+---
+
+不同資料庫之間的讀取與格式轉換，是資料分析的第一步。若拿到的是SQLite資料，想匯入power BI，該如何做呢？
+
+<!--more-->
+
+微軟的power BI是個資料視覺化的免費工具。本文簡介如何用power BI來讀入SQLite的資料。
+
+## 所需軟體
+
+除了power BI之外，尚需先安裝SQLite ODBC driver。
+
+
+## 匯入資料
+
+1. 在power BI下，依據點選「檔案」 &rarr; 「取得資料」 &rarr; 「取得資料以開始使用」 &rarr; 「其他」 &rarr; 「ODBC」 &rarr; 「連接」，進入設定視窗。
+
+2. 在設定視窗下，資料來源名稱(DSN)可選擇「SQLite3 DataSource」。
+
+3. 點開設定視窗內的「進階選項」，在連接字串(非認證屬性)的欄位中，填入SQLite database的路徑，如「database = 'D:\xxx\xxx\xxx\xxx.db'」，按下「確定」，即可連接SQLite database。
+
+另一個方式是先建立ODBC DSN，在power BI即可直接選取資料庫。作法如下：
+
+1. 打開ODBC Data Sources。
+
+2. 在「ODBC Data Source Administrator」的「User DSN」中，按「Add」，進入「Create New Data Source」視窗。
+
+3. 在「Create New Data Source」視窗中選擇「SQLite3 ODBC Driver」，按「Finish」進入「SQLite3 ODBC DSN Configuration」。
+
+4. 依據填入「Data Source Name」 (自訂名稱)、「Database Name」 (按「Browse」選取SQLite database檔案)，按「OK」完成設定，即會看到此SQLite database出現在「ODBC Data Source Administrator」視窗中。
+
+5. 從power BI匯入SQLite database時，直接從「資料來源名稱(DSN)」選擇已設定好的「Data Source Name」即可。
+
+
+## 參考資料
+
+1. [Power BI導入SQLite資料](https://medium.com/@ss1111119/power-bi%E5%B0%8E%E5%85%A5sqlite%E8%B3%87%E6%96%99-d003c8fbaf09)
+2. [使用Power BI連線SQLITE](https://hackmd.io/@hkh/B1UAjYuhD)
+3. [Visualise SQLite Data in Power BI](https://biinsight.com/visualise-sqlite-data-in-power-bi/)
