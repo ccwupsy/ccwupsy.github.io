@@ -7,10 +7,10 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "將SQLite資料匯入power BI",
+  "headline": "將power BI的工作表匯出為csv檔",
   
-  "datePublished": "2025-03-01T00:00:00Z",
-  "dateModified": "2025-03-01T00:00:00Z",
+  "datePublished": "2025-03-02T00:00:00Z",
+  "dateModified": "2025-03-02T00:00:00Z",
   "author": {
     "@type": "Person",
     "name": "Chia-Ching Wu",
@@ -20,7 +20,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/ccwupsy.github.io\/2025\/03\/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi\/" 
+    "@id": "https:\/\/ccwupsy.github.io\/2025\/03\/%E5%B0%87power-bi%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -32,7 +32,7 @@
     }
     
   },
-  "description": "\r不同資料庫之間的讀取與格式轉換，是資料分析的第一步。若拿到的是SQLite資料，想匯入power BI，該如何做呢？\n",
+  "description": "\rPower BI是微軟提供的一款免費的視覺化工具，也支援資料清理和轉換。但畢竟使用的是DAX語法，不一定是自身慣用的語法。若拿到的是Power BI資料，想要匯出數據，用自己熟悉的工具來處理資料，該如何做呢？\n",
   "keywords": []
 }
 
@@ -46,38 +46,38 @@
 <meta name="description" content="
 
 
-不同資料庫之間的讀取與格式轉換，是資料分析的第一步。若拿到的是SQLite資料，想匯入power BI，該如何做呢？
+Power BI是微軟提供的一款免費的視覺化工具，也支援資料清理和轉換。但畢竟使用的是DAX語法，不一定是自身慣用的語法。若拿到的是Power BI資料，想要匯出數據，用自己熟悉的工具來處理資料，該如何做呢？
 ">
 
 
 <meta property="og:description" content="
 
 
-不同資料庫之間的讀取與格式轉換，是資料分析的第一步。若拿到的是SQLite資料，想匯入power BI，該如何做呢？
+Power BI是微軟提供的一款免費的視覺化工具，也支援資料清理和轉換。但畢竟使用的是DAX語法，不一定是自身慣用的語法。若拿到的是Power BI資料，想要匯出數據，用自己熟悉的工具來處理資料，該如何做呢？
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="將SQLite資料匯入power BI">
-<meta name="twitter:title" content="將SQLite資料匯入power BI">
-<meta property="og:url" content="https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/">
-<meta property="twitter:url" content="https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/">
+<meta property="og:title" content="將power BI的工作表匯出為csv檔">
+<meta name="twitter:title" content="將power BI的工作表匯出為csv檔">
+<meta property="og:url" content="https://ccwupsy.github.io/2025/03/%E5%B0%87power-bi%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94/">
+<meta property="twitter:url" content="https://ccwupsy.github.io/2025/03/%E5%B0%87power-bi%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94/">
 <meta property="og:site_name" content="Fun with data">
 <meta property="og:description" content="
 
 
-不同資料庫之間的讀取與格式轉換，是資料分析的第一步。若拿到的是SQLite資料，想匯入power BI，該如何做呢？
+Power BI是微軟提供的一款免費的視覺化工具，也支援資料清理和轉換。但畢竟使用的是DAX語法，不一定是自身慣用的語法。若拿到的是Power BI資料，想要匯出數據，用自己熟悉的工具來處理資料，該如何做呢？
 ">
 <meta name="twitter:description" content="
 
 
-不同資料庫之間的讀取與格式轉換，是資料分析的第一步。若拿到的是SQLite資料，想匯入power BI，該如何做呢？
+Power BI是微軟提供的一款免費的視覺化工具，也支援資料清理和轉換。但畢竟使用的是DAX語法，不一定是自身慣用的語法。若拿到的是Power BI資料，想要匯出數據，用自己熟悉的工具來處理資料，該如何做呢？
 ">
 <meta property="og:locale" content="zh-tw">
 
   
-    <meta property="article:published_time" content="2025-03-01T00:00:00">
+    <meta property="article:published_time" content="2025-03-02T00:00:00">
   
   
-    <meta property="article:modified_time" content="2025-03-01T00:00:00">
+    <meta property="article:modified_time" content="2025-03-02T00:00:00">
   
   
   
@@ -88,8 +88,6 @@
   
     
       <meta property="article:tag" content="power BI">
-    
-      <meta property="article:tag" content="SQLite">
     
   
 
@@ -110,14 +108,14 @@
 
 
 
-    <title>將SQLite資料匯入power BI</title>
+    <title>將power BI的工作表匯出為csv檔</title>
 
     <link rel="icon" href="https://ccwupsy.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/">
+    <link rel="canonical" href="https://ccwupsy.github.io/2025/03/%E5%B0%87power-bi%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -300,15 +298,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      將SQLite資料匯入power BI
+      將power BI的工作表匯出為csv檔
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2025-03-01T00:00:00Z">
+      <time datetime="2025-03-02T00:00:00Z">
         
-  三月 1, 2025
+  三月 2, 2025
 
       </time>
     
@@ -327,33 +325,29 @@ if (!doNotTrack) {
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>微軟的power BI是個資料視覺化的免費工具。本文簡介如何用power BI來讀入SQLite的資料。</p>
+              <p>Power BI是微軟提供的一款免費的視覺化工具，可做視覺化的圖表後，將結果匯出。但，若是想匯出資料表，以其他工具來做處理，可以怎麼做呢？本文簡介如何在power BI中匯出csv檔。</p>
 <div id="所需軟體" class="section level2">
 <h2>所需軟體</h2>
-<p>除了power BI之外，尚需先安裝SQLite ODBC driver。</p>
+<p>除了power BI之外，尚需先安裝DAX Studio。</p>
 </div>
-<div id="匯入資料" class="section level2">
-<h2>匯入資料</h2>
+<div id="匯出資料" class="section level2">
+<h2>匯出資料</h2>
 <ol style="list-style-type: decimal">
-<li><p>在power BI下，依據點選「檔案」 → 「取得資料」 → 「取得資料以開始使用」 → 「其他」 → 「ODBC」 → 「連接」，進入設定視窗。</p></li>
-<li><p>在設定視窗下，資料來源名稱(DSN)可選擇「SQLite3 DataSource」。</p></li>
-<li><p>點開設定視窗內的「進階選項」，在連接字串(非認證屬性)的欄位中，填入SQLite database的路徑，如「database = ‘D:.db’」，按下「確定」，即可連接SQLite database。</p></li>
+<li><p>開啟power BI，打開欲匯出的資料庫。</p></li>
+<li><p>開啟DAX Studio。在開啟DAX Studio時，會出現Connect視窗。</p></li>
+<li><p>在Connect視窗中，「Power BI/SSDT Model」的選項中應會自動出現Power BI已開啟的資料庫名稱。</p></li>
+<li><p>點選「Power BI/SSDT Model」後，按「Conncet」，即可看到資料庫的工作表。</p></li>
+<li><p>點選「Advanced」 → 「Export Data」 → 「CSV files」 。</p></li>
+<li><p>在Export Data視窗中，設定好要儲存的資料夾(Output Path)、CSV Delimiter(視情況選擇，一般是Comma)和File Encoding(視資料而定)，按「Next」。</p></li>
+<li><p>選取欲匯出的資料表(預設為全選)，按「Export」。</p></li>
+<li><p>匯出完成後按「Close」即可。</p></li>
 </ol>
-<p>另一個方式是先建立ODBC DSN，在power BI即可直接選取資料庫。作法如下：</p>
-<ol style="list-style-type: decimal">
-<li><p>打開ODBC Data Sources。</p></li>
-<li><p>在「ODBC Data Source Administrator」的「User DSN」中，按「Add」，進入「Create New Data Source」視窗。</p></li>
-<li><p>在「Create New Data Source」視窗中選擇「SQLite3 ODBC Driver」，按「Finish」進入「SQLite3 ODBC DSN Configuration」。</p></li>
-<li><p>依據填入「Data Source Name」 (自訂名稱)、「Database Name」 (按「Browse」選取SQLite database檔案)，按「OK」完成設定，即會看到此SQLite database出現在「ODBC Data Source Administrator」視窗中。</p></li>
-<li><p>從power BI匯入SQLite database時，直接從「資料來源名稱(DSN)」選擇已設定好的「Data Source Name」即可。</p></li>
-</ol>
+<p>若是資料量較小，想匯出的資料表也不多，則不需要用到DAX Studio。直接點選Power BI左側欄位的「資料表檢視」，進入資料表檢視視窗。在右側的「資料」功能表中，對想匯出的資料表按右鍵，選擇「複雜資料表」，再將複製的資料貼到Excel即可。</p>
 </div>
 <div id="參考資料" class="section level2">
 <h2>參考資料</h2>
 <ol style="list-style-type: decimal">
-<li><a href="https://medium.com/@ss1111119/power-bi%E5%B0%8E%E5%85%A5sqlite%E8%B3%87%E6%96%99-d003c8fbaf09">Power BI導入SQLite資料</a></li>
-<li><a href="https://hackmd.io/@hkh/B1UAjYuhD">使用Power BI連線SQLITE</a></li>
-<li><a href="https://biinsight.com/visualise-sqlite-data-in-power-bi/">Visualise SQLite Data in Power BI</a></li>
+<li><a href="https://urbizedge.com/using-dax-studio-to-export-over-1-million-rows-of-data-from-power-bi/">Using DAX Studio to Export Over 1 Million Rows of Data From Power BI</a></li>
 </ol>
 </div>
 
@@ -372,8 +366,6 @@ if (!doNotTrack) {
                     
   <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/power-bi/">power BI</a>
 
-  <a class="tag tag--primary tag--small" href="https://ccwupsy.github.io/tags/sqlite/">SQLite</a>
-
                   </div>
                 
               
@@ -385,7 +377,7 @@ if (!doNotTrack) {
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2025/03/%E5%B0%87power-bi%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94/" data-tooltip="將power BI的工作表匯出為csv檔" aria-label="下一篇: 將power BI的工作表匯出為csv檔">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -393,7 +385,7 @@ if (!doNotTrack) {
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" data-tooltip="將類別變項重新編碼或分類" aria-label="上一篇: 將類別變項重新編碼或分類">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" data-tooltip="將SQLite資料匯入power BI" aria-label="上一篇: 將SQLite資料匯入power BI">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -411,19 +403,19 @@ if (!doNotTrack) {
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2025/03/%E5%B0%87power-bi%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2025/03/%E5%B0%87power-bi%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2025/03/%E5%B0%87power-bi%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -465,7 +457,7 @@ if (!doNotTrack) {
           repo: 'ccwupsy.github.io',
           owner: 'ccwupsy',
           admin: ['ccwupsy'],
-          id: '40bc58930f11402157e0661b84d32103',
+          id: '4fd6d7eecb4d9a01b73ada846e54d9ea',
           ...{"distractionfreemode":true,"enablehotkey":true,"language":"zh-TW","pagerdirection":"first","perpage":10}
         }).render('gitalk')
       })()
@@ -490,7 +482,7 @@ if (!doNotTrack) {
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2025/03/%E5%B0%87power-bi%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94/" data-tooltip="將power BI的工作表匯出為csv檔" aria-label="下一篇: 將power BI的工作表匯出為csv檔">
+            <a class="post-action-btn btn btn--disabled">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -498,7 +490,7 @@ if (!doNotTrack) {
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2022/11/%E5%B0%87%E9%A1%9E%E5%88%A5%E8%AE%8A%E9%A0%85%E9%87%8D%E6%96%B0%E7%B7%A8%E7%A2%BC%E6%88%96%E5%88%86%E9%A1%9E/" data-tooltip="將類別變項重新編碼或分類" aria-label="上一篇: 將類別變項重新編碼或分類">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" data-tooltip="將SQLite資料匯入power BI" aria-label="上一篇: 將SQLite資料匯入power BI">
           
               <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
               <i class="fa fa-angle-right"></i>
@@ -516,19 +508,19 @@ if (!doNotTrack) {
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" title="分享到 Facebook" aria-label="分享到 Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ccwupsy.github.io/2025/03/%E5%B0%87power-bi%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94/" title="分享到 Facebook" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" title="分享到 Twitter" aria-label="分享到 Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://ccwupsy.github.io/2025/03/%E5%B0%87power-bi%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94/" title="分享到 Twitter" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2025/03/%E5%B0%87sqlite%E8%B3%87%E6%96%99%E5%8C%AF%E5%85%A5power-bi/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://ccwupsy.github.io/2025/03/%E5%B0%87power-bi%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%A1%A8%E5%8C%AF%E5%87%BA%E7%82%BAcsv%E6%AA%94/" title="分享到 Linkedin" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -559,19 +551,19 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccwupsy.github.io%2F2025%2F03%2F%25E5%25B0%2587sqlite%25E8%25B3%2587%25E6%2596%2599%25E5%258C%25AF%25E5%2585%25A5power-bi%2F" aria-label="分享到 Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccwupsy.github.io%2F2025%2F03%2F%25E5%25B0%2587power-bi%25E7%259A%2584%25E5%25B7%25A5%25E4%25BD%259C%25E8%25A1%25A8%25E5%258C%25AF%25E5%2587%25BA%25E7%2582%25BAcsv%25E6%25AA%2594%2F" aria-label="分享到 Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fccwupsy.github.io%2F2025%2F03%2F%25E5%25B0%2587sqlite%25E8%25B3%2587%25E6%2596%2599%25E5%258C%25AF%25E5%2585%25A5power-bi%2F" aria-label="分享到 Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fccwupsy.github.io%2F2025%2F03%2F%25E5%25B0%2587power-bi%25E7%259A%2584%25E5%25B7%25A5%25E4%25BD%259C%25E8%25A1%25A8%25E5%258C%25AF%25E5%2587%25BA%25E7%2582%25BAcsv%25E6%25AA%2594%2F" aria-label="分享到 Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fccwupsy.github.io%2F2025%2F03%2F%25E5%25B0%2587sqlite%25E8%25B3%2587%25E6%2596%2599%25E5%258C%25AF%25E5%2585%25A5power-bi%2F" aria-label="分享到 Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fccwupsy.github.io%2F2025%2F03%2F%25E5%25B0%2587power-bi%25E7%259A%2584%25E5%25B7%25A5%25E4%25BD%259C%25E8%25A1%25A8%25E5%258C%25AF%25E5%2587%25BA%25E7%2582%25BAcsv%25E6%25AA%2594%2F" aria-label="分享到 Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>分享到 Linkedin</span>
         </a>
       </li>
